@@ -1,7 +1,7 @@
 //
 //  PlanInfo.swift
 //
-//  Created by Sameer Khan on 13/08/21
+//  Created by Sameer Khan on 27/08/21
 //  Copyright (c) . All rights reserved.
 //
 
@@ -11,14 +11,14 @@ import SwiftyJSON
 public class PlanInfo: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
+  private let kPlanInfoMsgKey: String = "msg"
   private let kPlanInfoStatusKey: String = "status"
   private let kPlanInfoTimeStampKey: String = "timeStamp"
-  private let kPlanInfoMsgKey: String = "msg"
 
   // MARK: Properties
+  public var msg: [Msg]?
   public var status: String?
   public var timeStamp: String?
-  public var msg: [Msg]?
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -36,9 +36,9 @@ public class PlanInfo: NSCoding {
    - returns: An initalized instance of the class.
   */
   public init(json: JSON) {
+    if let items = json[kPlanInfoMsgKey].array { msg = items.map { Msg(json: $0) } }
     status = json[kPlanInfoStatusKey].string
     timeStamp = json[kPlanInfoTimeStampKey].string
-    if let items = json[kPlanInfoMsgKey].array { msg = items.map { Msg(json: $0) } }
   }
 
   /**
@@ -47,23 +47,23 @@ public class PlanInfo: NSCoding {
   */
   public func dictionaryRepresentation() -> [String: Any] {
     var dictionary: [String: Any] = [:]
+    if let value = msg { dictionary[kPlanInfoMsgKey] = value.map { $0.dictionaryRepresentation() } }
     if let value = status { dictionary[kPlanInfoStatusKey] = value }
     if let value = timeStamp { dictionary[kPlanInfoTimeStampKey] = value }
-    if let value = msg { dictionary[kPlanInfoMsgKey] = value.map { $0.dictionaryRepresentation() } }
     return dictionary
   }
 
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
+    self.msg = aDecoder.decodeObject(forKey: kPlanInfoMsgKey) as? [Msg]
     self.status = aDecoder.decodeObject(forKey: kPlanInfoStatusKey) as? String
     self.timeStamp = aDecoder.decodeObject(forKey: kPlanInfoTimeStampKey) as? String
-    self.msg = aDecoder.decodeObject(forKey: kPlanInfoMsgKey) as? [Msg]
   }
 
   public func encode(with aCoder: NSCoder) {
+    aCoder.encode(msg, forKey: kPlanInfoMsgKey)
     aCoder.encode(status, forKey: kPlanInfoStatusKey)
     aCoder.encode(timeStamp, forKey: kPlanInfoTimeStampKey)
-    aCoder.encode(msg, forKey: kPlanInfoMsgKey)
   }
 
 }

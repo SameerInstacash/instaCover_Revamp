@@ -16,7 +16,7 @@ public class UserData: NSCoding {
   private let kUserDataTimeStampKey: String = "timeStamp "
 
   // MARK: Properties
-  public var msg: Msg?
+  public var userMsg: UserMsg?
   public var status: String?
   public var timeStamp: String?
 
@@ -36,7 +36,7 @@ public class UserData: NSCoding {
    - returns: An initalized instance of the class.
   */
   public init(json: JSON) {
-    msg = Msg(json: json[kUserDataMsgKey])
+    userMsg = UserMsg(json: json[kUserDataMsgKey])
     status = json[kUserDataStatusKey].string
     timeStamp = json[kUserDataTimeStampKey].string
   }
@@ -47,7 +47,7 @@ public class UserData: NSCoding {
   */
   public func dictionaryRepresentation() -> [String: Any] {
     var dictionary: [String: Any] = [:]
-    if let value = msg { dictionary[kUserDataMsgKey] = value.dictionaryRepresentation() }
+    if let value = userMsg { dictionary[kUserDataMsgKey] = value.dictionaryRepresentation() }
     if let value = status { dictionary[kUserDataStatusKey] = value }
     if let value = timeStamp { dictionary[kUserDataTimeStampKey] = value }
     return dictionary
@@ -55,13 +55,13 @@ public class UserData: NSCoding {
 
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
-    self.msg = aDecoder.decodeObject(forKey: kUserDataMsgKey) as? Msg
+    self.userMsg = aDecoder.decodeObject(forKey: kUserDataMsgKey) as? UserMsg
     self.status = aDecoder.decodeObject(forKey: kUserDataStatusKey) as? String
     self.timeStamp = aDecoder.decodeObject(forKey: kUserDataTimeStampKey) as? String
   }
 
   public func encode(with aCoder: NSCoder) {
-    aCoder.encode(msg, forKey: kUserDataMsgKey)
+    aCoder.encode(userMsg, forKey: kUserDataMsgKey)
     aCoder.encode(status, forKey: kUserDataStatusKey)
     aCoder.encode(timeStamp, forKey: kUserDataTimeStampKey)
   }

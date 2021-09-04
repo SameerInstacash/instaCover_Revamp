@@ -14,7 +14,6 @@ class EntryNavigationVC: UINavigationController {
 
         self.setStatusBarGradientColor()
     }
-    
 
     // MARK: - Navigation
 

@@ -20,6 +20,49 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth Permission required for Diagnosing the bluetooth hardware</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth Permission required for Diagnosing the bluetooth hardware</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calendar Usage permission Required for Resume test time</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera permission required to check both cameras</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts Permission required to fetch user contacts</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Face Id access required to test FaceId functionality</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Gather location updates to get SSID information and assist customer to schedule order pick up</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Gather location updates to get SSID information and assist customer to schedule order pick up</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Gather location updates to get SSID information and assist customer to schedule order pick up</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Gather location updates to get SSID information and assist customer to schedule order pick up</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone permission required to check the Mic and Speaker</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photo library access required to save a picture clicked by you</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access required to save a picture clicked by you</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+		<string>OpenSans-SemiBoldItalic.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -49,6 +92,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -62,5 +107,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

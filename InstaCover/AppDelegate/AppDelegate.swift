@@ -6,15 +6,54 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window : UIWindow?
+    var nav : UINavigationController?
+    
+    var currentProductID : String = ""
+    var isCurrentDevice : Bool = true
+    var selectedProductName : String = ""
+    var selectedProductBrand : String = ""
+    var selectedProductID : String = ""
+    var selectedTerm : String = ""
+    var selectedPolicyID : String = ""
+    var insuredQuotationID : String = ""
+    var insuredAmount : String = ""
+    var insuredServiceFee : String = ""
+    
+    var isVideoRequired : String = ""
+    var referenceNumber:String = ""
+    var insurance : String = ""
+    var faqHtml : String = ""
+    var tncHtml : String = ""
+    var descriptionHtml : String = ""       
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        
         return true
+    }
+    
+    //MARK: Custom Methods
+    
+    func navigateToLoginScreen() {
+        DispatchQueue.main.async { [self] in
+            let  story = UIStoryboard.init(name: "Main", bundle: nil)
+            self.window?.rootViewController = story.instantiateViewController(withIdentifier: "Login_Nav")
+        }
+    }
+    
+    func navigateToDashboardScreen() {
+        DispatchQueue.main.async {
+            let  story = UIStoryboard.init(name: "Dashboard", bundle: nil)
+            self.window?.rootViewController = story.instantiateViewController(withIdentifier: "Dashboard_Nav")
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -33,6 +72,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    class func sharedDelegate() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    internal var shouldRotate = false
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if shouldRotate {
+            return .allButUpsideDown
+        } else {
+            return .portrait
+        }
+    }
+    
 }
 

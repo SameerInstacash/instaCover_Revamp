@@ -1,7 +1,7 @@
 //
 //  FaqList.swift
 //
-//  Created by Sameer Khan on 25/08/21
+//  Created by Sameer Khan on 27/08/21
 //  Copyright (c) . All rights reserved.
 //
 
@@ -18,7 +18,7 @@ public class FaqList: NSCoding {
   // MARK: Properties
   public var status: String?
   public var timeStamp: String?
-  public var msg: Msg?
+  public var faqMsg: FaqMsg?
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -38,7 +38,7 @@ public class FaqList: NSCoding {
   public init(json: JSON) {
     status = json[kFaqListStatusKey].string
     timeStamp = json[kFaqListTimeStampKey].string
-    msg = Msg(json: json[kFaqListMsgKey])
+    faqMsg = FaqMsg(json: json[kFaqListMsgKey])
   }
 
   /**
@@ -49,7 +49,7 @@ public class FaqList: NSCoding {
     var dictionary: [String: Any] = [:]
     if let value = status { dictionary[kFaqListStatusKey] = value }
     if let value = timeStamp { dictionary[kFaqListTimeStampKey] = value }
-    if let value = msg { dictionary[kFaqListMsgKey] = value.dictionaryRepresentation() }
+    if let value = faqMsg { dictionary[kFaqListMsgKey] = value.dictionaryRepresentation() }
     return dictionary
   }
 
@@ -57,13 +57,13 @@ public class FaqList: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.status = aDecoder.decodeObject(forKey: kFaqListStatusKey) as? String
     self.timeStamp = aDecoder.decodeObject(forKey: kFaqListTimeStampKey) as? String
-    self.msg = aDecoder.decodeObject(forKey: kFaqListMsgKey) as? Msg
+    self.faqMsg = aDecoder.decodeObject(forKey: kFaqListMsgKey) as? FaqMsg
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(status, forKey: kFaqListStatusKey)
     aCoder.encode(timeStamp, forKey: kFaqListTimeStampKey)
-    aCoder.encode(msg, forKey: kFaqListMsgKey)
+    aCoder.encode(faqMsg, forKey: kFaqListMsgKey)
   }
 
 }

@@ -1,7 +1,7 @@
 //
 //  Faq.swift
 //
-//  Created by Sameer Khan on 25/08/21
+//  Created by Sameer Khan on 27/08/21
 //  Copyright (c) . All rights reserved.
 //
 
@@ -13,10 +13,12 @@ public class Faq: NSCoding {
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private let kFaqAnswerKey: String = "answer"
   private let kFaqQuestionKey: String = "question"
+  private let kDataIsCollapsableKey: String = "isCollapsable"
 
   // MARK: Properties
   public var answer: String?
   public var question: String?
+  public var isCollapsable: Bool? = false
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -36,6 +38,7 @@ public class Faq: NSCoding {
   public init(json: JSON) {
     answer = json[kFaqAnswerKey].string
     question = json[kFaqQuestionKey].string
+    isCollapsable = json[kDataIsCollapsableKey].bool
   }
 
   /**
@@ -46,6 +49,7 @@ public class Faq: NSCoding {
     var dictionary: [String: Any] = [:]
     if let value = answer { dictionary[kFaqAnswerKey] = value }
     if let value = question { dictionary[kFaqQuestionKey] = value }
+    if let value = isCollapsable { dictionary[kDataIsCollapsableKey] = value }
     return dictionary
   }
 
@@ -53,11 +57,13 @@ public class Faq: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.answer = aDecoder.decodeObject(forKey: kFaqAnswerKey) as? String
     self.question = aDecoder.decodeObject(forKey: kFaqQuestionKey) as? String
+    self.isCollapsable = aDecoder.decodeObject(forKey: kDataIsCollapsableKey) as? Bool
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(answer, forKey: kFaqAnswerKey)
     aCoder.encode(question, forKey: kFaqQuestionKey)
+    aCoder.encode(isCollapsable, forKey: kDataIsCollapsableKey)
   }
 
 }

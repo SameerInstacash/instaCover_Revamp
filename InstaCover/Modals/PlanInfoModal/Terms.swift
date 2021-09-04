@@ -1,7 +1,7 @@
 //
 //  Terms.swift
 //
-//  Created by Sameer Khan on 13/08/21
+//  Created by Sameer Khan on 27/08/21
 //  Copyright (c) . All rights reserved.
 //
 
@@ -13,6 +13,7 @@ public class Terms: NSCoding {
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private let kTermsNameKey: String = "name"
   private let kTermsIpCodeKey: String = "ipCode"
+  private let kTermsIconsKey: String = "icons"
   private let kTermsInternalIdentifierKey: String = "id"
   private let kTermsFaqKey: String = "faq"
   private let kTermsTncKey: String = "tnc"
@@ -22,6 +23,7 @@ public class Terms: NSCoding {
   // MARK: Properties
   public var name: String?
   public var ipCode: String?
+  public var icons: Icons?
   public var internalIdentifier: String?
   public var faq: String?
   public var tnc: String?
@@ -46,6 +48,7 @@ public class Terms: NSCoding {
   public init(json: JSON) {
     name = json[kTermsNameKey].string
     ipCode = json[kTermsIpCodeKey].string
+    icons = Icons(json: json[kTermsIconsKey])
     internalIdentifier = json[kTermsInternalIdentifierKey].string
     faq = json[kTermsFaqKey].string
     tnc = json[kTermsTncKey].string
@@ -61,6 +64,7 @@ public class Terms: NSCoding {
     var dictionary: [String: Any] = [:]
     if let value = name { dictionary[kTermsNameKey] = value }
     if let value = ipCode { dictionary[kTermsIpCodeKey] = value }
+    if let value = icons { dictionary[kTermsIconsKey] = value.dictionaryRepresentation() }
     if let value = internalIdentifier { dictionary[kTermsInternalIdentifierKey] = value }
     if let value = faq { dictionary[kTermsFaqKey] = value }
     if let value = tnc { dictionary[kTermsTncKey] = value }
@@ -73,6 +77,7 @@ public class Terms: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.name = aDecoder.decodeObject(forKey: kTermsNameKey) as? String
     self.ipCode = aDecoder.decodeObject(forKey: kTermsIpCodeKey) as? String
+    self.icons = aDecoder.decodeObject(forKey: kTermsIconsKey) as? Icons
     self.internalIdentifier = aDecoder.decodeObject(forKey: kTermsInternalIdentifierKey) as? String
     self.faq = aDecoder.decodeObject(forKey: kTermsFaqKey) as? String
     self.tnc = aDecoder.decodeObject(forKey: kTermsTncKey) as? String
@@ -83,6 +88,7 @@ public class Terms: NSCoding {
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(name, forKey: kTermsNameKey)
     aCoder.encode(ipCode, forKey: kTermsIpCodeKey)
+    aCoder.encode(icons, forKey: kTermsIconsKey)
     aCoder.encode(internalIdentifier, forKey: kTermsInternalIdentifierKey)
     aCoder.encode(faq, forKey: kTermsFaqKey)
     aCoder.encode(tnc, forKey: kTermsTncKey)

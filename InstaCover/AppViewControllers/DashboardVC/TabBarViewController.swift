@@ -108,7 +108,14 @@ class TabBarViewController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let indexOfTab = tabBar.items?.firstIndex(of: item)
         
-        print(indexOfTab ?? 100)
+        if let login = AppUserDefaults.value(forKey: "isLogin") as? Bool, !login {
+            
+            if indexOfTab == 2 {
+                let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "LoginVC") as! LoginVC
+                vc.isLoggedIn = false
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     //MARK: Custom Method

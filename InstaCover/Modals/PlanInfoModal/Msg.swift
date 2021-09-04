@@ -1,7 +1,7 @@
 //
 //  Msg.swift
 //
-//  Created by Sameer Khan on 13/08/21
+//  Created by Sameer Khan on 27/08/21
 //  Copyright (c) . All rights reserved.
 //
 
@@ -13,10 +13,12 @@ public class Msg: NSCoding {
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private let kMsgTermsKey: String = "terms"
   private let kMsgNameKey: String = "name"
+  private let kMsgIconsKey: String = "icons"
 
   // MARK: Properties
   public var terms: [Terms]?
   public var name: String?
+  public var icons: Icons?
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -36,6 +38,7 @@ public class Msg: NSCoding {
   public init(json: JSON) {
     if let items = json[kMsgTermsKey].array { terms = items.map { Terms(json: $0) } }
     name = json[kMsgNameKey].string
+    icons = Icons(json: json[kMsgIconsKey])
   }
 
   /**
@@ -46,6 +49,7 @@ public class Msg: NSCoding {
     var dictionary: [String: Any] = [:]
     if let value = terms { dictionary[kMsgTermsKey] = value.map { $0.dictionaryRepresentation() } }
     if let value = name { dictionary[kMsgNameKey] = value }
+    if let value = icons { dictionary[kMsgIconsKey] = value.dictionaryRepresentation() }
     return dictionary
   }
 
@@ -53,11 +57,13 @@ public class Msg: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.terms = aDecoder.decodeObject(forKey: kMsgTermsKey) as? [Terms]
     self.name = aDecoder.decodeObject(forKey: kMsgNameKey) as? String
+    self.icons = aDecoder.decodeObject(forKey: kMsgIconsKey) as? Icons
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(terms, forKey: kMsgTermsKey)
     aCoder.encode(name, forKey: kMsgNameKey)
+    aCoder.encode(icons, forKey: kMsgIconsKey)
   }
 
 }

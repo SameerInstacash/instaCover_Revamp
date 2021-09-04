@@ -8,10 +8,17 @@
 import UIKit
 
 class FaqQuestionTblCell: UITableViewCell {
+    
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var lblNum: UILabel!
+    @IBOutlet weak var lblQuestion: UILabel!
+    @IBOutlet weak var btnPlusMinus: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        UIView.addShadowOnView(baseView: self.baseView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

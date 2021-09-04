@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,20 +23,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountActive" translatesAutoresizingMaskIntoConstraints="NO" id="gzH-4C-DtS">
-                        <rect key="frame" x="30" y="20" width="80" height="80"/>
+                        <rect key="frame" x="20" y="20" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="9zh-Kd-X2q"/>
                             <constraint firstAttribute="height" constant="80" id="tqX-3H-GE3"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jackson Tan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-Jx-1u1">
-                        <rect key="frame" x="125" y="30" width="114.5" height="27.5"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jackson Tan Jackson Tan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-Jx-1u1">
+                        <rect key="frame" x="115" y="30" width="202" height="54.5"/>
                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="20"/>
                         <color key="textColor" red="0.41176470590000003" green="0.87843137250000003" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-Hy-w1S">
-                        <rect key="frame" x="125" y="57.5" width="142" height="33"/>
+                        <rect key="frame" x="115" y="84.5" width="142" height="33"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <state key="normal" title="view profile details">
                             <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,7 +46,7 @@
                         </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-UA-Tc9">
-                        <rect key="frame" x="272" y="64" width="20" height="20"/>
+                        <rect key="frame" x="262" y="91" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="0CB-Pm-npt"/>
                             <constraint firstAttribute="height" constant="20" id="f0W-jt-hd2"/>
@@ -54,7 +54,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gzH-4C-DtS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="0Wn-So-Edx"/>
+                    <constraint firstItem="gzH-4C-DtS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="0Wn-So-Edx"/>
                     <constraint firstItem="C7j-Jx-1u1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="6Fh-3q-LnT"/>
                     <constraint firstItem="bd3-Hy-w1S" firstAttribute="top" secondItem="C7j-Jx-1u1" secondAttribute="bottom" id="7gS-vq-8gw"/>
                     <constraint firstItem="bd3-Hy-w1S" firstAttribute="leading" secondItem="gzH-4C-DtS" secondAttribute="trailing" constant="15" id="IHp-UY-FIO"/>
@@ -63,6 +63,7 @@
                     <constraint firstAttribute="bottom" secondItem="gzH-4C-DtS" secondAttribute="bottom" constant="20" id="cKR-ky-PfX"/>
                     <constraint firstItem="C7j-Jx-1u1" firstAttribute="leading" secondItem="gzH-4C-DtS" secondAttribute="trailing" constant="15" id="gxr-fS-hMA"/>
                     <constraint firstItem="gzH-4C-DtS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="hWs-tF-Fxt"/>
+                    <constraint firstAttribute="trailing" secondItem="C7j-Jx-1u1" secondAttribute="trailing" constant="10" id="lrv-Dy-wP0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
