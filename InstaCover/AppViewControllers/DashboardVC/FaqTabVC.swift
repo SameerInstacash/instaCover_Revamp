@@ -101,50 +101,51 @@ class FaqTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate, WK
             return // or fatalError() or whatever
         }
         
-        
-        let indexPath = self.faqTableView.indexPath(for: cell)
-        let model = self.faqMessage?.faqData?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0]
-        
-        //model?.isCollapsable = !(model?.isCollapsable ?? false)
-        
-        self.faqMessage?.faqData?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0].isCollapsable = !(model?.isCollapsable ?? false)
-       
-        
-        self.faqTableView.performBatchUpdates {
+        autoreleasepool {
             
-            self.faqTableView.beginUpdates()
-            self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .fade)
-            self.faqTableView.endUpdates()
+            let indexPath = self.faqTableView.indexPath(for: cell)
+            let model = self.faqMessage?.faqData?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0]
             
-        } completion: { _ in
+            //model?.isCollapsable = !(model?.isCollapsable ?? false)
             
-            self.faqTableView.beginUpdates()
-            self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .fade)
-            self.faqTableView.endUpdates()
-                     
+            self.faqMessage?.faqData?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0].isCollapsable = !(model?.isCollapsable ?? false)
+            
+            
+            self.faqTableView.performBatchUpdates {
+                
+                self.faqTableView.beginUpdates()
+                self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .fade)
+                self.faqTableView.endUpdates()
+                
+            } completion: { _ in
+                
+                self.faqTableView.beginUpdates()
+                self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .fade)
+                self.faqTableView.endUpdates()
+                
+            }
+            
         }
-        
-        
         
         /*
          let indexPath = self.faqTableView.indexPath(for: cell)
          
-        if indexPath?.row == 0 {
-            let model = self.faqMessage?.faqdata?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0]
-            //let model = arrFaq[indexPath?.section ?? 0]
-            
-            if model?.isCollapsable == true {
-                model?.isCollapsable = false
-                let section = IndexSet.init(integer: indexPath?.section ?? 0)
-                self.faqTableView.reloadSections(section, with: .none)
-            }
-            else {
-                model?.isCollapsable = true
-                let section = IndexSet.init(integer: indexPath?.section ?? 0)
-                self.faqTableView.reloadSections(section, with: .none)
-            }
-        }
-        */
+         if indexPath?.row == 0 {
+         let model = self.faqMessage?.faqdata?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0]
+         //let model = arrFaq[indexPath?.section ?? 0]
+         
+         if model?.isCollapsable == true {
+         model?.isCollapsable = false
+         let section = IndexSet.init(integer: indexPath?.section ?? 0)
+         self.faqTableView.reloadSections(section, with: .none)
+         }
+         else {
+         model?.isCollapsable = true
+         let section = IndexSet.init(integer: indexPath?.section ?? 0)
+         self.faqTableView.reloadSections(section, with: .none)
+         }
+         }
+         */
         
     }
     

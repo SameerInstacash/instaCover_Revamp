@@ -32,6 +32,8 @@
 		592ED69B26CBB183008B2023 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592ED69326CBB182008B2023 /* ResultCell.swift */; };
 		592ED69C26CBB183008B2023 /* SkipTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592ED69426CBB182008B2023 /* SkipTestCell.swift */; };
 		592ED69D26CBB183008B2023 /* TestResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592ED69526CBB182008B2023 /* TestResultCell.xib */; };
+		59589CED26E8C7D8000BEBF1 /* FeatureTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59589CEB26E8C7D8000BEBF1 /* FeatureTblCell.swift */; };
+		59589CEE26E8C7D8000BEBF1 /* FeatureTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59589CEC26E8C7D8000BEBF1 /* FeatureTblCell.xib */; };
 		595BA64326E2337100F24CC3 /* DiagnosisModePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA64226E2337100F24CC3 /* DiagnosisModePopUpVC.swift */; };
 		5963B7A426DA3CBE00EAD8B3 /* libipay88sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5963B7A126DA3CBE00EAD8B3 /* libipay88sdk.a */; };
 		5963B7A626DA418D00EAD8B3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963B7A526DA418D00EAD8B3 /* DetailViewModel.swift */; };
@@ -226,6 +228,8 @@
 		592ED69326CBB182008B2023 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		592ED69426CBB182008B2023 /* SkipTestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipTestCell.swift; sourceTree = "<group>"; };
 		592ED69526CBB182008B2023 /* TestResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestResultCell.xib; sourceTree = "<group>"; };
+		59589CEB26E8C7D8000BEBF1 /* FeatureTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTblCell.swift; sourceTree = "<group>"; };
+		59589CEC26E8C7D8000BEBF1 /* FeatureTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTblCell.xib; sourceTree = "<group>"; };
 		595BA64226E2337100F24CC3 /* DiagnosisModePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisModePopUpVC.swift; sourceTree = "<group>"; };
 		5963B7A126DA3CBE00EAD8B3 /* libipay88sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libipay88sdk.a; sourceTree = "<group>"; };
 		5963B7A226DA3CBE00EAD8B3 /* Ipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ipay.h; sourceTree = "<group>"; };
@@ -463,6 +467,15 @@
 			path = TestCells;
 			sourceTree = "<group>";
 		};
+		59589CEA26E8C7AB000BEBF1 /* HomeTabCells */ = {
+			isa = PBXGroup;
+			children = (
+				59589CEB26E8C7D8000BEBF1 /* FeatureTblCell.swift */,
+				59589CEC26E8C7D8000BEBF1 /* FeatureTblCell.xib */,
+			);
+			path = HomeTabCells;
+			sourceTree = "<group>";
+		};
 		5963B7A026DA3CA500EAD8B3 /* iPaySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +671,7 @@
 		596C0AA326BBA69D00D257B1 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				59589CEA26E8C7AB000BEBF1 /* HomeTabCells */,
 				592ED6A126CBB18E008B2023 /* TestCells */,
 				596480D926C2A9BA0054CAB0 /* FaqTabCells */,
 				596DF09426BD1F19008D189C /* AccountTabCells */,
@@ -1102,6 +1116,7 @@
 				596C0B1026BBB38100D257B1 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				592ED66626CBADFB008B2023 /* InstaCash.storyboard in Resources */,
 				596C0AD126BBA83700D257B1 /* eight.wav in Resources */,
+				59589CEE26E8C7D8000BEBF1 /* FeatureTblCell.xib in Resources */,
 				5980525D26D60F1500A26B08 /* Montserrat-Italic.ttf in Resources */,
 				5980525C26D60F1500A26B08 /* Montserrat-Regular.ttf in Resources */,
 				597A918926DE2E7D00BCDBB3 /* GoogleService-Info.plist in Resources */,
@@ -1208,6 +1223,7 @@
 				592ED67F26CBAE27008B2023 /* CameraVC.swift in Sources */,
 				596A119E26C5279F0022F17D /* PaymentSuccessVC.swift in Sources */,
 				597128CE26CCF5C000E618B2 /* PasswordStrengthType.swift in Sources */,
+				59589CED26E8C7D8000BEBF1 /* FeatureTblCell.swift in Sources */,
 				596A0F4526BEA185000E998D /* CreateCustomerRequestVC.swift in Sources */,
 				592ED69A26CBB183008B2023 /* TestResultCell.swift in Sources */,
 				596C0A4526BBA32000D257B1 /* LoginVC.swift in Sources */,

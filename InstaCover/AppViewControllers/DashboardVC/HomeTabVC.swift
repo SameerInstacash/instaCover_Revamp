@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import iOSDropDown
 
-class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var baseScrollView: UIScrollView!
     @IBOutlet weak var aboutCollectionView: UICollectionView!
@@ -42,6 +42,9 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     @IBOutlet weak var txtFieldDeviceModel: DropDown!
     @IBOutlet weak var txtFieldTenure: DropDown!
+    
+    @IBOutlet weak var featureTableView: UITableView!
+    @IBOutlet weak var heightOfFeatureTableView: NSLayoutConstraint!
     
     var arrAboutImage = [#imageLiteral(resourceName: "openForAll"),#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "supportTeam"),#imageLiteral(resourceName: "flexibility")]
     var arrAboutTitle = ["OPEN FOR ALL","FAST APPLICATION","SUPPORT TEAM","FLEXIBILITY"]
@@ -82,12 +85,16 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.featureTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.removeObserver(self)
+        
+        self.featureTableView.removeObserver(self, forKeyPath: "contentSize")
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -131,6 +138,17 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     @objc func keyboardWillHide(sender: NSNotification) {
          self.view.frame.origin.y = 0
+    }
+    
+    //MARK: Custom Method
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if(keyPath == "contentSize"){
+            if let newvalue = change?[.newKey]
+            {
+                let newsize  = newvalue as! CGSize
+                self.heightOfFeatureTableView.constant = newsize.height + 10.0
+            }
+        }
     }
         
     //MARK: Custom Method
@@ -209,6 +227,9 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func registerTableViewCells() {
         self.aboutCollectionView.register(UINib.init(nibName: "HomeAboutCVCell", bundle: nil), forCellWithReuseIdentifier: "HomeAboutCVCell")
+        
+        self.featureTableView.register(UINib.init(nibName: "FeatureTblCell", bundle: nil), forCellReuseIdentifier: "FeatureTblCell")
+        
     }
 
     //MARK: IBAction
@@ -363,6 +384,28 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         self.moveCollectionToFrame(contentOffset: contentOffset)
     }
     
+    //MARK: UITableView DataSource & Delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrPlan[self.selectedPlanIndex].feature?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let FeatureTblCell = tableView.dequeueReusableCell(withIdentifier: "FeatureTblCell") as! FeatureTblCell
+        let featureName = self.arrPlan[self.selectedPlanIndex].feature?[indexPath.item]
+        
+        FeatureTblCell.lblFeature.text = featureName
+        
+        return FeatureTblCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     //MARK: UICollectonView DataSource & Delegate
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == self.aboutCollectionView {
@@ -452,6 +495,10 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                 
                 self.planCollectionView.reloadData()
                 
+                self.featureTableView.reloadData()
+                //self.featureTableView.dataSource = self
+                //self.featureTableView.delegate = self
+                
                 self.getEstimate()
             }else {
                 
@@ -519,11 +566,11 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                                 
                 do {
                     let response = try JSON(data: responseData.data ?? Data())
+                    print(response)
                     
                     if response["status"] == "Success" {
                         
                         let result = PlanInfo.init(json: response)
-                        //print(result)
                         
                         self.arrPlan = result.msg ?? []
                         
@@ -548,6 +595,10 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                         self.txtFieldTenure.optionArray = self.arrDropTenure
                         
                         self.planCollectionView.reloadData()
+                        
+                        //self.featureTableView.reloadData()
+                        self.featureTableView.dataSource = self
+                        self.featureTableView.delegate = self
                         
                         self.getDeviceInfo()
                         

@@ -129,11 +129,11 @@ class PaymentDetailVC: UIViewController {
         
         dump(viewModel.detail)
         requeryPayment = IpayPayment()
-        requeryPayment?.paymentId = "" // viewModel.detail.paymentID
+        requeryPayment?.paymentId = "55" // viewModel.detail.paymentID
         requeryPayment?.merchantKey = "lObOlu9PD3" //viewModel.detail.merchantKey
         requeryPayment?.merchantCode = "M28460_S0002" //viewModel.detail.merchantCode
         requeryPayment?.refNo = AppDelegate.sharedDelegate().insuredQuotationID //viewModel.detail.refNo
-        requeryPayment?.amount = AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
+        requeryPayment?.amount = "1" //AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
         requeryPayment?.currency = "MYR" //viewModel.detail.currency
         requeryPayment?.prodDesc = AppDelegate.sharedDelegate().insurance + " with " + AppDelegate.sharedDelegate().selectedTerm //viewModel.detail.productDescription
         requeryPayment?.userName = userData?.name //viewModel.detail.customerName

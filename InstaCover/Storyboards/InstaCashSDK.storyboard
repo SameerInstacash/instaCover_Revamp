@@ -73,7 +73,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternate Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-Lj-nXc">
-                                                <rect key="frame" x="20" y="280" width="121.5" height="21"/>
+                                                <rect key="frame" x="20" y="276" width="134" height="25"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -270,13 +270,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eligible.gif" translatesAutoresizingMaskIntoConstraints="NO" id="7YY-Jc-LC5">
-                                <rect key="frame" x="94" y="6.5" width="187.5" height="300"/>
+                                <rect key="frame" x="94" y="9" width="187.5" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="lhp-mb-wWH"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dph-dx-csg">
-                                <rect key="frame" x="294" y="20" width="61" height="44.5"/>
+                                <rect key="frame" x="293" y="20" width="62" height="40"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Close">
@@ -294,25 +294,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-QJ-eFv">
-                                <rect key="frame" x="20" y="316.5" width="335" height="34.5"/>
+                                <rect key="frame" x="20" y="319" width="335" height="29.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your device is eligible to cover by our care plan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeA-YK-LTx">
-                                <rect key="frame" x="20" y="361" width="335" height="54.5"/>
+                                <rect key="frame" x="20" y="358.5" width="335" height="47"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For support , email us at:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBU-mz-BX3">
-                                <rect key="frame" x="20" y="435.5" width="335" height="25"/>
+                                <rect key="frame" x="20" y="425.5" width="335" height="21"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBT-Zx-ah6">
-                                <rect key="frame" x="20" y="455.5" width="335" height="36.5"/>
+                                <rect key="frame" x="20" y="441.5" width="335" height="33"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="instacover@compasia.com">
@@ -370,13 +370,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Not_Eligible.gif" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-wb-TbG">
-                                <rect key="frame" x="94" y="9" width="187.5" height="300"/>
+                                <rect key="frame" x="94" y="6.5" width="187.5" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="fwi-tG-VNu"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sej-wZ-k0P">
-                                <rect key="frame" x="293" y="20" width="62" height="40"/>
+                                <rect key="frame" x="294" y="20" width="61" height="44.5"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Close">
@@ -394,19 +394,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're Sorry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-Te-iLR">
-                                <rect key="frame" x="20" y="319" width="335" height="29.5"/>
+                                <rect key="frame" x="20" y="316.5" width="335" height="34.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your device is not eligible to cover by our care plan. Please proceed to claim request for the refund...." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83U-fZ-JZ8">
-                                <rect key="frame" x="20" y="358.5" width="335" height="70"/>
+                                <rect key="frame" x="20" y="361" width="335" height="82"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uci-Lf-uXm" customClass="GradientButton" customModule="InstaCover" customModuleProvider="target">
-                                <rect key="frame" x="20" y="468.5" width="335" height="45"/>
+                                <rect key="frame" x="20" y="483" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="s6F-uD-Uko"/>
                                 </constraints>
@@ -454,10 +454,10 @@
     </scenes>
     <designables>
         <designable name="9IP-i8-hAu">
-            <size key="intrinsicContentSize" width="68" height="33"/>
+            <size key="intrinsicContentSize" width="68" height="37"/>
         </designable>
         <designable name="uci-Lf-uXm">
-            <size key="intrinsicContentSize" width="119" height="33"/>
+            <size key="intrinsicContentSize" width="125" height="37"/>
         </designable>
     </designables>
     <resources>

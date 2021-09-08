@@ -14,11 +14,13 @@ public class Msg: NSCoding {
   private let kMsgTermsKey: String = "terms"
   private let kMsgNameKey: String = "name"
   private let kMsgIconsKey: String = "icons"
+  private let kMsgFeatureKey: String = "feature"
 
   // MARK: Properties
   public var terms: [Terms]?
   public var name: String?
   public var icons: Icons?
+  public var feature: [String]?
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -39,6 +41,8 @@ public class Msg: NSCoding {
     if let items = json[kMsgTermsKey].array { terms = items.map { Terms(json: $0) } }
     name = json[kMsgNameKey].string
     icons = Icons(json: json[kMsgIconsKey])
+
+    if let items = json[kMsgFeatureKey].array { feature = items.map { $0.stringValue } }
   }
 
   /**
@@ -50,6 +54,8 @@ public class Msg: NSCoding {
     if let value = terms { dictionary[kMsgTermsKey] = value.map { $0.dictionaryRepresentation() } }
     if let value = name { dictionary[kMsgNameKey] = value }
     if let value = icons { dictionary[kMsgIconsKey] = value.dictionaryRepresentation() }
+    
+    if let value = feature { dictionary[kMsgFeatureKey] = value }
     return dictionary
   }
 
@@ -58,12 +64,15 @@ public class Msg: NSCoding {
     self.terms = aDecoder.decodeObject(forKey: kMsgTermsKey) as? [Terms]
     self.name = aDecoder.decodeObject(forKey: kMsgNameKey) as? String
     self.icons = aDecoder.decodeObject(forKey: kMsgIconsKey) as? Icons
+    
+    self.feature = aDecoder.decodeObject(forKey: kMsgFeatureKey) as? [String]
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(terms, forKey: kMsgTermsKey)
     aCoder.encode(name, forKey: kMsgNameKey)
     aCoder.encode(icons, forKey: kMsgIconsKey)
+    aCoder.encode(feature, forKey: kMsgFeatureKey)
   }
 
 }
