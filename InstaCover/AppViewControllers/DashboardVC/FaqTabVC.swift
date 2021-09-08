@@ -101,6 +101,7 @@ class FaqTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate, WK
             return // or fatalError() or whatever
         }
         
+        
         let indexPath = self.faqTableView.indexPath(for: cell)
         let model = self.faqMessage?.faqData?[self.selectedPlanIndex].faq?[indexPath?.section ?? 0]
         
@@ -118,7 +119,7 @@ class FaqTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate, WK
         } completion: { _ in
             
             self.faqTableView.beginUpdates()
-            self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .automatic)
+            self.faqTableView.reloadSections(IndexSet.init(integer: indexPath?.section ?? 0), with: .fade)
             self.faqTableView.endUpdates()
                      
         }

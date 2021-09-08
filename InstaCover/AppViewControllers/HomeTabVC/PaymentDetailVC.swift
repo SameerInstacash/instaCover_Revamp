@@ -281,14 +281,14 @@ class PaymentDetailVC: UIViewController {
             "referenceNumber" : AppDelegate.sharedDelegate().insuredQuotationID,
         ]
         
-        print(params)
+        //print(params)
         self.showHudLoader("")
         
         let webService = AF.request(AppURL.kgetiPayTransaction, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         webService.responseJSON { (responseData) in
             
             self.hud.dismiss()
-            print(responseData.value as? [String:Any] ?? [:])
+            //print(responseData.value as? [String:Any] ?? [:])
             
             switch responseData.result {
             case .success(_):

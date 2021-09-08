@@ -78,13 +78,11 @@ struct AppURL {
     static let kGetQuestions = BaseURL + "getQuestions"
     static let kSaveCustomerQuote = BaseURL + "Customer/saveCustomerQuote"
     static let kGetQuoteData = BaseURL + "Quote/getQuoteData"
-    
-    
+    static let kSendVideoLink = BaseURL + "sendVideoLink"
+    static let kUploadVideoCheck = BaseURL + "uploadVideoCheck"
     
     
     static let kSaveMobile = BaseURL + "saveMobile"
-    static let kSendVideoLink = BaseURL + "sendVideoLink"
-    static let kUploadVideoCheck = BaseURL + "uploadVideoCheck"
     static let kGetCustomerType = BaseURL + "getCustomerType"
     static let kgetPaymentFrequency = BaseURL + "getPaymentFrequency"
     static let kSaveCustomerInformation = BaseURL + "saveCustomerInformation"

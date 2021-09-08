@@ -667,16 +667,64 @@ extension DeviceDetectVC {
                 do {
                     let json = try JSON(data: responseData.data ?? Data())
                     
-                    if json["status"] == "Success" {
+                    if AppDelegate.sharedDelegate().isVideoRequired == "1" {
                         
-                        let vc1 = DesignManager.loadViewControllerFromSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
-                        self.present(vc1, animated: true, completion: nil)
-                                             
+                        if json["status"] == "Success" {
+                            
+                            let vc = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "AlternateEmailVC") as! AlternateEmailVC
+                            
+                            vc.isDismiss = { email in
+                                
+                                let vc = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "UploadVideoVC") as! UploadVideoVC
+                                vc.userEmail = email
+                                
+                                vc.isDismiss = {
+                                    
+                                    let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                                    self.present(vc1, animated: true, completion: nil)
+                                    
+                                }
+                                
+                                self.present(vc, animated: true, completion: nil)
+                            }
+                            
+                            self.present(vc, animated: true, completion: nil)
+                            
+                        }else {
+                            
+                            let vc = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "AlternateEmailVC") as! AlternateEmailVC
+                            
+                            vc.isDismiss = { email in
+                                
+                                let vc = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "UploadVideoVC") as! UploadVideoVC
+                                vc.userEmail = email
+                                
+                                vc.isDismiss = {
+                                    
+                                    let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                                    self.present(vc2, animated: true, completion: nil)
+                                    
+                                }
+                                
+                                self.present(vc, animated: true, completion: nil)
+                            }
+                            
+                            self.present(vc, animated: true, completion: nil)
+                            
+                        }
+                        
                     }else {
-                        
-                        let vc2 = DesignManager.loadViewControllerFromSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
-                        self.present(vc2, animated: true, completion: nil)
-                        
+                        if json["status"] == "Success" {
+                            
+                            let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                            self.present(vc1, animated: true, completion: nil)
+                                                 
+                        }else {
+                            
+                            let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                            self.present(vc2, animated: true, completion: nil)
+                            
+                        }
                     }
                     
                 }catch {

@@ -151,7 +151,7 @@ class DesignManager: NSObject {
         return controller
     }
 
-    class func loadViewControllerFromSDKStoryBoard(identifier: String) -> Any {
+    class func loadViewControllerFromInstacashSDKStoryBoard(identifier: String) -> Any {
         let storyBoard = UIStoryboard(name: "InstaCashSDK", bundle: Bundle.main)
         let controller = storyBoard.instantiateViewController(withIdentifier: identifier)
         return controller

@@ -135,6 +135,8 @@
 		5973F6AA26BC0986004048C3 /* AccountTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6A926BC0986004048C3 /* AccountTabVC.swift */; };
 		5973F6AF26BC0A1E004048C3 /* EntryNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6AE26BC0A1E004048C3 /* EntryNavigationVC.swift */; };
 		5973F6B426BC0A52004048C3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6B326BC0A52004048C3 /* TabBarViewController.swift */; };
+		5979C01326E5E53A00F145DE /* UploadVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01226E5E53A00F145DE /* UploadVideoVC.swift */; };
+		5979C01526E5EA9A00F145DE /* AlternateEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */; };
 		597A918926DE2E7D00BCDBB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 597A918826DE2E7D00BCDBB3 /* GoogleService-Info.plist */; };
 		597C3AFC26C38AE600742B66 /* FaqAnswerTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597C3AFA26C38AE600742B66 /* FaqAnswerTblCell.swift */; };
 		597C3AFD26C38AE600742B66 /* FaqAnswerTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597C3AFB26C38AE600742B66 /* FaqAnswerTblCell.xib */; };
@@ -341,6 +343,8 @@
 		5973F6A926BC0986004048C3 /* AccountTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabVC.swift; sourceTree = "<group>"; };
 		5973F6AE26BC0A1E004048C3 /* EntryNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryNavigationVC.swift; sourceTree = "<group>"; };
 		5973F6B326BC0A52004048C3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5979C01226E5E53A00F145DE /* UploadVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVideoVC.swift; sourceTree = "<group>"; };
+		5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateEmailVC.swift; sourceTree = "<group>"; };
 		597A918826DE2E7D00BCDBB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		597C3AFA26C38AE600742B66 /* FaqAnswerTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqAnswerTblCell.swift; sourceTree = "<group>"; };
 		597C3AFB26C38AE600742B66 /* FaqAnswerTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqAnswerTblCell.xib; sourceTree = "<group>"; };
@@ -521,6 +525,8 @@
 		596A11A226C527C40022F17D /* InstaCashSDKVC */ = {
 			isa = PBXGroup;
 			children = (
+				5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */,
+				5979C01226E5E53A00F145DE /* UploadVideoVC.swift */,
 				59A1EAD026C630C00015BE96 /* EligibleVC.swift */,
 				596A11A626C528070022F17D /* NotEligibleVC.swift */,
 			);
@@ -1254,6 +1260,7 @@
 				596DF0C426BD3F9B008D189C /* ChangePasswordVC.swift in Sources */,
 				596DF08726BD1EE1008D189C /* NotificationTblCell.swift in Sources */,
 				59A1EAD126C630C00015BE96 /* EligibleVC.swift in Sources */,
+				5979C01326E5E53A00F145DE /* UploadVideoVC.swift in Sources */,
 				592ED68326CBAE27008B2023 /* ChargerVC.swift in Sources */,
 				592ED69926CBB183008B2023 /* TestResultTitleCell.swift in Sources */,
 				596C0A4126BBA32000D257B1 /* AppDelegate.swift in Sources */,
@@ -1264,6 +1271,7 @@
 				596DF07126BD1035008D189C /* CAPSPageMenu.m in Sources */,
 				596A0F4026BEA14D000E998D /* ViewProfileDetailsVC.swift in Sources */,
 				597128CD26CCF5C000E618B2 /* String+Extension.swift in Sources */,
+				5979C01526E5EA9A00F145DE /* AlternateEmailVC.swift in Sources */,
 				596480DC26C2A9F10054CAB0 /* FaqQuestionTblCell.swift in Sources */,
 				596C0AB526BBA77E00D257B1 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				592ED67C26CBAE27008B2023 /* VolumeButtonVC.swift in Sources */,
