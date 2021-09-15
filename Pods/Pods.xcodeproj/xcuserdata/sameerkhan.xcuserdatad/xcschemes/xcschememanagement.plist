@@ -172,14 +172,21 @@
 			<key>orderHint</key>
 			<integer>26</integer>
 		</dict>
-		<key>QRCodeReader.swift.xcscheme</key>
+		<key>SwiftGifOrigin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
-		<key>SwiftGifOrigin.xcscheme</key>
+		<key>SwiftQRScanner-SwiftQRScanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
+		<key>SwiftQRScanner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -191,7 +198,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>29</integer>
+			<integer>30</integer>
 		</dict>
 		<key>iOSDropDown.xcscheme</key>
 		<dict>

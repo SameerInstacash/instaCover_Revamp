@@ -69,7 +69,7 @@ class EditProfileDetailsVC: UIViewController {
     }
     
     @IBAction func saveBtnClicked(_ sender: UIButton) {
-    
+        
     }
 
     // MARK: - Navigation

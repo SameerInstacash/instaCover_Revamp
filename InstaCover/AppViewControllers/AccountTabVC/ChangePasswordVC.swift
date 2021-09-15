@@ -54,9 +54,9 @@ class ChangePasswordVC: UIViewController {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter your current password"))
             return false
             
-        }else if (self.txtFieldOldPW.text?.count ?? 0) < 4 {
+        }else if (self.txtFieldOldPW.text?.count ?? 0) < 3 {
             
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "password should be more then 4 digits"))
+            self.showaAlert(message: self.getLocalizatioStringValue(key: "password should be more then 3 digits"))
             return false
             
         }else if self.txtFieldNewPW.text?.isEmpty ?? false {
@@ -64,9 +64,9 @@ class ChangePasswordVC: UIViewController {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter new password"))
             return false
             
-        }else if (self.txtFieldNewPW.text?.count ?? 0) < 4 {
+        }else if (self.txtFieldNewPW.text?.count ?? 0) < 3 {
             
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "new password should be more then 4 digits"))
+            self.showaAlert(message: self.getLocalizatioStringValue(key: "new password should be more then 3 digits"))
             return false
             
         }else if self.txtFieldConfirmPW.text?.isEmpty ?? false {
@@ -74,9 +74,9 @@ class ChangePasswordVC: UIViewController {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter confirm password"))
             return false
             
-        }else if (self.txtFieldConfirmPW.text?.count ?? 0) < 4 {
+        }else if (self.txtFieldConfirmPW.text?.count ?? 0) < 3 {
             
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "confirm password should be more then 4 digits"))
+            self.showaAlert(message: self.getLocalizatioStringValue(key: "confirm password should be more then 3 digits"))
             return false
             
         }else if self.txtFieldNewPW.text != self.txtFieldConfirmPW.text {

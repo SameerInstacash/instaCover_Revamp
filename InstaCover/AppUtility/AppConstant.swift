@@ -12,7 +12,7 @@ var performDiagnostics: (() -> Void)?
 var arrTestsInSDK = [String]()
 var arrHoldTestsInSDK = [String]()
 
-var AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
+//var AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
 var AppUserName = "storeIOS"
 var AppApiKey = "b99d0f356515682d17cc90265703afc9"
 
@@ -49,46 +49,46 @@ var AppCurrency = "RM"
 struct AppURL {
     
     #if DEBUG
-        //static let BaseURL = "https://sbox.getinstacash.in:5000/api/"
+        //static let AppBaseUrl = "https://sbox.getinstacash.in:5000/api/"
     
-        static let BaseURL = "https://instacover-uat.getinstacash.in/index.php/"
-        //static let BaseURL = "https://coverapi.getinstacash.com.my/index.php/"
+        static let AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
+        //static let AppBaseUrl = "https://coverapi.getinstacash.com.my/index.php/"
     #else
-        //static let BaseURL = "https://sbox.getinstacash.in:5000/api/"
+        //static let AppBaseUrl = "https://sbox.getinstacash.in:5000/api/"
         
-        //static let BaseURL = "https://instacover-uat.getinstacash.in/index.php/"
-        static let BaseURL = "https://coverapi.getinstacash.com.my/index.php/"
+        static let AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
+        //static let AppBaseUrl = "https://coverapi.getinstacash.com.my/index.php/"
     #endif
     
     
     //static let kLogin = BaseURL + "login"
-    static let kCustomerSignup = BaseURL + "Customer/customerSignup"
-    static let kCustomerLogin = BaseURL + "Customer/customerLogin"
-    static let kForgotPassword = BaseURL + "Customer/customerForgotPassword"
-    static let kGetCurrentDevice = BaseURL + "getCurrentDevice"
-    static let kGetAllProduct = BaseURL + "getAllProduct"
-    static let kGetAllPlans = BaseURL + "getAllPlans"
-    static let kEnquiryPlanFaq = BaseURL + "Enquiry/planFaq"
-    static let kChangePassword = BaseURL + "Customer/changePassword"
-    static let kEnquiryContactUs = BaseURL + "Enquiry/contactUs"
-    static let kGetEstimate = BaseURL + "getEstimate"
-    static let kGetQuote = BaseURL + "getQuote"
-    static let kgetiPayTransaction = BaseURL + "getiPayTransaction"
-    static let kStoreResult = BaseURL + "storeResult"
-    static let kGetQuestions = BaseURL + "getQuestions"
-    static let kSaveCustomerQuote = BaseURL + "Customer/saveCustomerQuote"
-    static let kGetQuoteData = BaseURL + "Quote/getQuoteData"
-    static let kSendVideoLink = BaseURL + "sendVideoLink"
-    static let kUploadVideoCheck = BaseURL + "uploadVideoCheck"
+    static let kCustomerSignup = AppBaseUrl + "Customer/customerSignup"
+    static let kCustomerLogin = AppBaseUrl + "Customer/customerLogin"
+    static let kForgotPassword = AppBaseUrl + "Customer/customerForgotPassword"
+    static let kGetCurrentDevice = AppBaseUrl + "getCurrentDevice"
+    static let kGetAllProduct = AppBaseUrl + "getAllProduct"
+    static let kGetAllPlans = AppBaseUrl + "getAllPlans"
+    static let kEnquiryPlanFaq = AppBaseUrl + "Enquiry/planFaq"
+    static let kChangePassword = AppBaseUrl + "Customer/changePassword"
+    static let kEnquiryContactUs = AppBaseUrl + "Enquiry/contactUs"
+    static let kGetEstimate = AppBaseUrl + "getEstimate"
+    static let kGetQuote = AppBaseUrl + "getQuote"
+    static let kgetiPayTransaction = AppBaseUrl + "getiPayTransaction"
+    static let kStoreResult = AppBaseUrl + "storeResult"
+    static let kGetQuestions = AppBaseUrl + "getQuestions"
+    static let kSaveCustomerQuote = AppBaseUrl + "Customer/saveCustomerQuote"
+    static let kGetQuoteData = AppBaseUrl + "Quote/getQuoteData"
+    static let kSendVideoLink = AppBaseUrl + "sendVideoLink"
+    static let kUploadVideoCheck = AppBaseUrl + "uploadVideoCheck"
     
     
-    static let kSaveMobile = BaseURL + "saveMobile"
-    static let kGetCustomerType = BaseURL + "getCustomerType"
-    static let kgetPaymentFrequency = BaseURL + "getPaymentFrequency"
-    static let kSaveCustomerInformation = BaseURL + "saveCustomerInformation"
-    static let kGetPaymentMode = BaseURL + "getPaymentMode"
-    static let kPaymentInitiate = BaseURL + "paymentInitiate"
-    static let kCheckPaymentStatus = BaseURL + "checkPaymentStatus"
+    static let kSaveMobile = AppBaseUrl + "saveMobile"
+    static let kGetCustomerType = AppBaseUrl + "getCustomerType"
+    static let kgetPaymentFrequency = AppBaseUrl + "getPaymentFrequency"
+    static let kSaveCustomerInformation = AppBaseUrl + "saveCustomerInformation"
+    static let kGetPaymentMode = AppBaseUrl + "getPaymentMode"
+    static let kPaymentInitiate = AppBaseUrl + "paymentInitiate"
+    static let kCheckPaymentStatus = AppBaseUrl + "checkPaymentStatus"
     
 }
 

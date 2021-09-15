@@ -566,7 +566,7 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                                 
                 do {
                     let response = try JSON(data: responseData.data ?? Data())
-                    print(response)
+                    //print(response)
                     
                     if response["status"] == "Success" {
                         
@@ -595,10 +595,10 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                         self.txtFieldTenure.optionArray = self.arrDropTenure
                         
                         self.planCollectionView.reloadData()
-                        
-                        //self.featureTableView.reloadData()
+                    
                         self.featureTableView.dataSource = self
                         self.featureTableView.delegate = self
+                        self.featureTableView.reloadData()
                         
                         self.getDeviceInfo()
                         

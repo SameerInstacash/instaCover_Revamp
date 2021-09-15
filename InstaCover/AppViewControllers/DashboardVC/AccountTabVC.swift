@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import QRCodeReader
+//import QRCodeReader
+import SwiftQRScanner
 import JGProgressHUD
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
 
-class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate, QRCodeReaderViewControllerDelegate {
+class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var accountTableView: UITableView!
     
@@ -23,6 +24,9 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     let hud = JGProgressHUD()
     let reachability: Reachability? = Reachability()
     
+    
+    
+    /*
     // Good practice: create the reader lazily to avoid cpu overload during the
     // initialization and each time we need to scan a QRCode
     lazy var readerVC: QRCodeReaderViewController = {
@@ -33,12 +37,13 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             $0.showTorchButton        = true
             $0.showSwitchCameraButton = true
             $0.showCancelButton       = false
-            //$0.showOverlayView        = true
-            //$0.rectOfInterest         = CGRect(x: 0.2, y: 0.2, width: 0.5, height: 0.2)
+            $0.showOverlayView        = true
+            $0.rectOfInterest         = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.2)
         }
         
         return QRCodeReaderViewController(builder: builder)
     }()
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +144,13 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 let vc = DesignManager.loadViewControllerFromAccountStoryBoard(identifier: "ChangePasswordVC") as! ChangePasswordVC
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
-                self.scanQRBtnPressed(UIButton())
+                //self.scanQRBtnPressed(UIButton())
+                                
+                let scanner = QRCodeScannerController()
+                scanner.delegate = self
+                scanner.modalPresentationStyle = .overFullScreen
+                self.present(scanner, animated: true, completion: nil)
+            
             case 4:
                 
                 self.tabBarController?.tabBar.isHidden = true
@@ -187,7 +198,13 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             
             switch indexPath.row {
             case 0:
-                self.scanQRBtnPressed(UIButton())
+                //self.scanQRBtnPressed(UIButton())
+                                
+                let scanner = QRCodeScannerController()
+                scanner.delegate = self
+                scanner.modalPresentationStyle = .overFullScreen
+                self.present(scanner, animated: true, completion: nil)
+            
             case 1:
                 
                 self.tabBarController?.tabBar.isHidden = true
@@ -232,14 +249,14 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             "quoteId" : quotationID
         ]
         
-        //print(params)
+        print(params)
         self.showHudLoader()
         
         let webService = AF.request(AppURL.kGetQuoteData, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         webService.responseJSON { (responseData) in
             
             self.hud.dismiss()
-            //print(responseData.value as? [String:Any] ?? [:])
+            print(responseData.value as? [String:Any] ?? [:])
             
             switch responseData.result {
             case .success(_):
@@ -296,8 +313,34 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
 
 }
 
+extension AccountTabVC: QRScannerCodeDelegate {
+    
+    func qrScanner(_ controller: UIViewController, scanDidComplete result: String) {
+        print("result: \(result)")
+        
+        AppDelegate.sharedDelegate().insuredQuotationID = result
+        
+        if self.reachability?.connection.description != "No Connection" {
+            self.getQuoteData(quotationID: result)
+        }else {
+            self.showaAlert(message: self.getLocalizatioStringValue(key: "Please Check Internet connection."))
+        }
+        
+    }
+
+    func qrScannerDidFail(_ controller: UIViewController, error: String) {
+        print("error: \(error)")
+    }
+
+    func qrScannerDidCancel(_ controller: UIViewController) {
+        print("SwiftQRScanner did cancel")
+    }
+    
+}
+
 extension AccountTabVC {
     
+    /*
     @IBAction func scanQRBtnPressed(_ sender: UIButton) {
     
         guard checkScanPermissions() else { return }
@@ -388,5 +431,6 @@ extension AccountTabVC {
             return false
         }
     }
+    */
     
 }

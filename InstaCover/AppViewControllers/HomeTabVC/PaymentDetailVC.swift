@@ -31,6 +31,7 @@ class PaymentDetailVC: UIViewController {
     var viewModel : DetailViewModel = DetailViewModel()
     
     var apiTimer: Timer?
+    var apiCount = 0
     
     let hud = JGProgressHUD()
     let reachability: Reachability? = Reachability()
@@ -245,10 +246,11 @@ class PaymentDetailVC: UIViewController {
                         
                         if AppDelegate.sharedDelegate().isCurrentDevice {
                             
-                            let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
+                            //self.navigationController?.pushViewController(vc, animated: true)
                             
-                            //self.initiateIpay88SDK()
+                            self.initiateIpay88SDK()
+                            
                         }else {
                             let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -287,7 +289,6 @@ class PaymentDetailVC: UIViewController {
         let webService = AF.request(AppURL.kgetiPayTransaction, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         webService.responseJSON { (responseData) in
             
-            self.hud.dismiss()
             //print(responseData.value as? [String:Any] ?? [:])
             
             switch responseData.result {
@@ -295,11 +296,14 @@ class PaymentDetailVC: UIViewController {
                                 
                 do {
                     let json = try JSON(data: responseData.data ?? Data())
+                    //print(json)
                     
                     if json["status"] == "Success" {
+                        self.hud.dismiss()
                         
                         self.apiTimer?.invalidate()
                         self.apiTimer = nil
+                        self.apiCount = 0
                         
                         AppDelegate.sharedDelegate().referenceNumber = json["msg"]["referenceNumber"].stringValue
                         
@@ -307,7 +311,20 @@ class PaymentDetailVC: UIViewController {
                         self.navigationController?.pushViewController(vc, animated: true)
                      
                     }else {
-                        self.showaAlert(message: json["msg"].stringValue)
+                        //self.showaAlert(message: json["msg"].stringValue)
+                        
+                
+                        if self.apiCount >= 20 {
+                            
+                            self.hud.dismiss()
+                            
+                            self.apiTimer?.invalidate()
+                            self.apiTimer = nil
+                            self.apiCount = 0
+                            
+                            self.showaAlert(message: "Please contact customer support")
+                        }
+                        
                     }
                     
                 }catch {
@@ -339,13 +356,14 @@ extension PaymentDetailVC : PaymentResultDelegate {
     @objc func update() {
         //ServiceManager.showHUD = false
         
+        self.apiCount += 1
         self.getIpayTransactionStatus()
     }
     
     func paymentSuccess(_ refNo: String!, withTransId transId: String!, withAmount amount: String!, withRemark remark: String!, withAuthCode authCode: String!) {
         
         //ServiceManager.showHUD = true
-        apiTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(PaymentDetailVC.update), userInfo: nil, repeats: false)
+        apiTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(PaymentDetailVC.update), userInfo: nil, repeats: true)
         
         //let message = "refNo=\(String(describing: refNo!))\n transId=\(String(describing: transId!))\n amount=\(String(describing: amount!))\n remark=\(String(describing: remark!)) \nauthCode:\(String(describing: authCode!))"
         //showMessage(title: "Payment Success", message: message)

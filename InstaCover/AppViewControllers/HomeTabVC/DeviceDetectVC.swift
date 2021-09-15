@@ -649,7 +649,7 @@ extension DeviceDetectVC {
             "userName" : "instaCover",
             "apiKey" : "instaCover",
             "quotationId" : AppDelegate.sharedDelegate().insuredQuotationID,
-            "result" : AppResultJSON
+            "result" :  AppResultJSON
         ]
         
         //print(params)
@@ -681,6 +681,11 @@ extension DeviceDetectVC {
                                 vc.isDismiss = {
                                     
                                     let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                                    vc1.isDismiss = {
+                                        let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                        vc.tabBarController?.tabBar.isHidden = false
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                     self.present(vc1, animated: true, completion: nil)
                                     
                                 }
@@ -702,6 +707,11 @@ extension DeviceDetectVC {
                                 vc.isDismiss = {
                                     
                                     let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                                    vc2.isDismiss = {
+                                        let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                        vc.tabBarController?.tabBar.isHidden = false
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                     self.present(vc2, animated: true, completion: nil)
                                     
                                 }
@@ -717,11 +727,21 @@ extension DeviceDetectVC {
                         if json["status"] == "Success" {
                             
                             let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                            vc1.isDismiss = {
+                                let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                vc.tabBarController?.tabBar.isHidden = false
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                             self.present(vc1, animated: true, completion: nil)
                                                  
                         }else {
                             
                             let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                            vc2.isDismiss = {
+                                let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                vc.tabBarController?.tabBar.isHidden = false
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                             self.present(vc2, animated: true, completion: nil)
                             
                         }

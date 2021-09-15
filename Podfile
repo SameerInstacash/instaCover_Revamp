@@ -19,10 +19,11 @@ target 'InstaCover' do
   pod 'JGProgressHUD'
   pod 'SwiftGifOrigin'
   pod 'INTULocationManager'
-  pod 'QRCodeReader.swift'
+  #pod 'QRCodeReader.swift'
   pod 'Alamofire'
   pod 'AlamofireImage'
   #pod 'DropDown'
   pod 'iOSDropDown'
+  pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
 
 end

@@ -90,9 +90,9 @@ class LoginVC: UIViewController {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter password"))
             return false
             
-        }else if (self.txtFieldPassword.text?.count ?? 0) < 4 {
+        }else if (self.txtFieldPassword.text?.count ?? 0) < 3 {
             
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "password should be more then 4 digits"))
+            self.showaAlert(message: self.getLocalizatioStringValue(key: "password should be more then 3 digits"))
             return false
             
         }

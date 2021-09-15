@@ -9,6 +9,7 @@ import UIKit
 
 class NotEligibleVC: UIViewController {
     
+    var isDismiss : (()->(Void))?
     @IBOutlet weak var notEligibleImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -36,7 +37,12 @@ class NotEligibleVC: UIViewController {
     
     //MARK: IBAction
     @IBAction func closeBtnClicked(_ sender: UIButton) {
+        
         self.dismiss(animated: true) { }
+        if let dismiss = self.isDismiss {
+            dismiss()
+        }
+        
     }
     
     @IBAction func claimRequestBtnClicked(_ sender: UIButton) {

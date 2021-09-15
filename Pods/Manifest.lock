@@ -128,8 +128,8 @@ PODS:
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.12)
-  - QRCodeReader.swift (10.1.0)
   - SwiftGifOrigin (1.7.0)
+  - SwiftQRScanner (1.0.9)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -146,8 +146,8 @@ DEPENDENCIES:
   - JGProgressHUD
   - Luminous
   - PopupDialog
-  - QRCodeReader.swift
   - SwiftGifOrigin
+  - SwiftQRScanner (from `https://github.com/vinodiOS/SwiftQRScanner`)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -178,9 +178,17 @@ SPEC REPOS:
     - nanopb
     - PopupDialog
     - PromisesObjC
-    - QRCodeReader.swift
     - SwiftGifOrigin
     - SwiftyJSON
+
+EXTERNAL SOURCES:
+  SwiftQRScanner:
+    :git: https://github.com/vinodiOS/SwiftQRScanner
+
+CHECKOUT OPTIONS:
+  SwiftQRScanner:
+    :commit: 9eb7b0bb5397b596cbf1fcaa11636a197cc84132
+    :git: https://github.com/vinodiOS/SwiftQRScanner
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -209,10 +217,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
+  SwiftQRScanner: e09dc7b549d0d7301cdca505d483665af8cda58e
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 4b85b624873b35e1eee09d9a38f083b75ec0e807
+PODFILE CHECKSUM: 507556aab66dc8bc20950e1ecb770d92f6cea84e
 
 COCOAPODS: 1.10.1

@@ -29,7 +29,9 @@ class PaymentSuccessVC: UIViewController {
         if !AppDelegate.sharedDelegate().isCurrentDevice {
             self.lblPaymentMSG.text = "Please scan below qr code to proceed device diagnosis"
             self.proceedBtnHeight.constant = 0
-            self.createQrCodeForDeivce()
+            //self.createQrCodeForDeivce()
+            
+            self.successImgVW.image = self.generateQRCode(from: AppDelegate.sharedDelegate().insuredQuotationID)
         }
     }
     
@@ -46,6 +48,21 @@ class PaymentSuccessVC: UIViewController {
     }
     
     //MARK: Custom Methods
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
+    }
+    
     func createQrCodeForDeivce() {
         // Get define string to encode
         let myString = AppDelegate.sharedDelegate().insuredQuotationID
@@ -606,6 +623,11 @@ extension PaymentSuccessVC {
                                 vc.isDismiss = {
                                     
                                     let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                                    vc1.isDismiss = {
+                                        let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                        vc.tabBarController?.tabBar.isHidden = false
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                     self.present(vc1, animated: true, completion: nil)
                                     
                                 }
@@ -627,6 +649,11 @@ extension PaymentSuccessVC {
                                 vc.isDismiss = {
                                     
                                     let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                                    vc2.isDismiss = {
+                                        let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                        vc.tabBarController?.tabBar.isHidden = false
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                     self.present(vc2, animated: true, completion: nil)
                                     
                                 }
@@ -642,11 +669,22 @@ extension PaymentSuccessVC {
                         if json["status"] == "Success" {
                             
                             let vc1 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "EligibleVC") as! EligibleVC
+                            vc1.isDismiss = {
+                                let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                vc.tabBarController?.tabBar.isHidden = false
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                             self.present(vc1, animated: true, completion: nil)
                                                  
                         }else {
                             
                             let vc2 = DesignManager.loadViewControllerFromInstacashSDKStoryBoard(identifier: "NotEligibleVC") as! NotEligibleVC
+                            vc2.isDismiss = {
+                                
+                                let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "HomeTabVC") as! HomeTabVC
+                                vc.tabBarController?.tabBar.isHidden = false
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                             self.present(vc2, animated: true, completion: nil)
                             
                         }

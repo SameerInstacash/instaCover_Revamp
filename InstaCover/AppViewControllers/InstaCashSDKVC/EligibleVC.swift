@@ -11,6 +11,7 @@ import MessageUI
 
 class EligibleVC: UIViewController, MFMailComposeViewControllerDelegate {
     
+    var isDismiss : (()->(Void))?
     @IBOutlet weak var eligibleImageView: UIImageView!
 
     override func viewDidLoad() {
@@ -38,7 +39,12 @@ class EligibleVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     //MARK: IBAction
     @IBAction func closeBtnClicked(_ sender: UIButton) {
+        
         self.dismiss(animated: true) { }
+        if let dismiss = self.isDismiss {
+            dismiss()
+        }
+        
     }
     
     @IBAction func mailBtnClicked(_ sender: UIButton) {

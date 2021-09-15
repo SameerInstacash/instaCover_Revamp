@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "29F475E46142FCD224E52A385AD26DB6"
-               BuildableName = "QRCodeReader.framework"
-               BlueprintName = "QRCodeReader.swift"
+               BlueprintIdentifier = "B0DB8DEC07098E61E5DCC8EB28AEC2D7"
+               BuildableName = "SwiftQRScanner.bundle"
+               BlueprintName = "SwiftQRScanner-SwiftQRScanner"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
