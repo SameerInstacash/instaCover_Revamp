@@ -1340,7 +1340,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking FlashLight" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En2-2n-aZu">
-                                <rect key="frame" x="20" y="355.5" width="335" height="23.5"/>
+                                <rect key="frame" x="20" y="336.5" width="335" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Brown-RegularAlt" family="Brown" pointSize="20"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1349,7 +1349,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count how many times your phone's flashLight blinked and then type it in the text box provided" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2d-Vj-5OO">
-                                <rect key="frame" x="20" y="389" width="335" height="56"/>
+                                <rect key="frame" x="20" y="370" width="335" height="56"/>
                                 <fontDescription key="fontDescription" name="Brown-RegularAlt" family="Brown" pointSize="16"/>
                                 <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1358,7 +1358,7 @@
                                 </variation>
                             </label>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8MX-zA-Ald">
-                                <rect key="frame" x="122" y="465" width="131" height="35"/>
+                                <rect key="frame" x="122" y="446" width="131" height="35"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="YoO-j1-OtS">
@@ -1372,14 +1372,14 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 </variation>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashlight.on.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H1I-ZP-MbS">
-                                <rect key="frame" x="97.5" y="165" width="180" height="181"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashLight" translatesAutoresizingMaskIntoConstraints="NO" id="H1I-ZP-MbS">
+                                <rect key="frame" x="127.5" y="196.5" width="120" height="120"/>
                                 <color key="tintColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="Sf2-7r-JQ1">
+                                    <constraint firstAttribute="width" constant="120" id="Sf2-7r-JQ1">
                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="180" id="Sk6-V7-3wH">
+                                    <constraint firstAttribute="height" constant="120" id="Sk6-V7-3wH">
                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
                                     </constraint>
                                 </constraints>
@@ -1437,7 +1437,7 @@
                         <constraints>
                             <constraint firstItem="8MX-zA-Ald" firstAttribute="centerX" secondItem="H1I-ZP-MbS" secondAttribute="centerX" id="3p5-8Y-npn"/>
                             <constraint firstItem="lgT-tn-MjN" firstAttribute="trailing" secondItem="h2d-Vj-5OO" secondAttribute="trailing" constant="20" id="7DT-rt-QIP"/>
-                            <constraint firstItem="H1I-ZP-MbS" firstAttribute="centerY" secondItem="zjY-GK-qEL" secondAttribute="centerY" constant="-78" id="A3C-fg-eU2"/>
+                            <constraint firstItem="H1I-ZP-MbS" firstAttribute="centerY" secondItem="zjY-GK-qEL" secondAttribute="centerY" constant="-77" id="A3C-fg-eU2"/>
                             <constraint firstItem="Wxu-rk-zot" firstAttribute="leading" secondItem="93O-hN-e3Y" secondAttribute="trailing" constant="10" id="C18-Dw-7VW"/>
                             <constraint firstItem="En2-2n-aZu" firstAttribute="leading" secondItem="lgT-tn-MjN" secondAttribute="leading" constant="20" id="C9n-wf-UVc"/>
                             <constraint firstItem="Tei-GO-qke" firstAttribute="leading" secondItem="lgT-tn-MjN" secondAttribute="leading" constant="20" id="Hes-uj-Ref"/>
@@ -1448,7 +1448,7 @@
                             <constraint firstItem="h2d-Vj-5OO" firstAttribute="leading" secondItem="lgT-tn-MjN" secondAttribute="leading" constant="20" id="PgQ-PQ-tSl"/>
                             <constraint firstItem="lgT-tn-MjN" firstAttribute="bottom" secondItem="Tei-GO-qke" secondAttribute="bottom" constant="20" id="adz-Yu-2sw"/>
                             <constraint firstItem="8MX-zA-Ald" firstAttribute="top" secondItem="h2d-Vj-5OO" secondAttribute="bottom" constant="20" id="fqR-5V-QEj"/>
-                            <constraint firstItem="En2-2n-aZu" firstAttribute="top" secondItem="H1I-ZP-MbS" secondAttribute="bottom" constant="10" id="gT3-do-qvw"/>
+                            <constraint firstItem="En2-2n-aZu" firstAttribute="top" secondItem="H1I-ZP-MbS" secondAttribute="bottom" constant="20" id="gT3-do-qvw"/>
                             <constraint firstItem="H1I-ZP-MbS" firstAttribute="centerX" secondItem="zjY-GK-qEL" secondAttribute="centerX" id="huk-OW-df1"/>
                             <constraint firstItem="lgT-tn-MjN" firstAttribute="trailing" secondItem="5RD-HM-8f7" secondAttribute="trailing" id="io8-yy-6Nz"/>
                             <constraint firstItem="5RD-HM-8f7" firstAttribute="top" secondItem="lgT-tn-MjN" secondAttribute="top" id="jDD-0j-NVF"/>
@@ -3391,7 +3391,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDL-2e-O8U">
-                                <rect key="frame" x="20" y="400.5" width="335" height="65.5"/>
+                                <rect key="frame" x="20" y="400.5" width="335" height="56"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3679,7 +3679,7 @@
             <size key="intrinsicContentSize" width="55" height="34"/>
         </designable>
         <designable name="gLZ-yr-tIU">
-            <size key="intrinsicContentSize" width="38" height="37"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="ooZ-Wm-P1m">
             <size key="intrinsicContentSize" width="55" height="34"/>
@@ -3707,7 +3707,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="Connectivity" width="238" height="238"/>
+        <image name="Connectivity" width="427" height="428"/>
         <image name="Diagnostic" width="117" height="126"/>
         <image name="backArrow" width="13" height="23"/>
         <image name="camera" width="114" height="99.5"/>
@@ -3715,16 +3715,16 @@
         <image name="circle-blue" width="16" height="16"/>
         <image name="earphone" width="238" height="238"/>
         <image name="eye" width="100" height="100"/>
-        <image name="flashlight.on.fill" catalog="system" width="76" height="128"/>
+        <image name="flashLight" width="349" height="349"/>
         <image name="keyPad" width="77" height="97.5"/>
         <image name="mic" width="24.5" height="38.5"/>
         <image name="proximity" width="88.5" height="123"/>
         <image name="proximity.gif" width="550" height="385"/>
         <image name="rotation" width="144.5" height="129.5"/>
         <image name="speaker" width="126.5" height="92"/>
-        <image name="touch" width="27.5" height="40.5"/>
+        <image name="touch" width="280" height="367"/>
         <image name="touchScreen" width="89.5" height="141"/>
         <image name="vibrations" width="238" height="238"/>
-        <image name="wifi_test" width="238" height="238"/>
+        <image name="wifi_test" width="370" height="277"/>
     </resources>
 </document>

@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Connectivity1@2x.png",
+      "filename" : "blueTooth.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Connectivity1@3x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

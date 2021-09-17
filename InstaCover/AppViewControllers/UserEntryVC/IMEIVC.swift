@@ -13,7 +13,7 @@ class IMEIVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setUIElements()
         
         if AppUserDefaults.value(forKey: "IMEI") != nil {

@@ -32,7 +32,7 @@ class LoginVC: UIViewController {
         
         self.setUIElements()
         
-        if CustomUserDefault.getUserData() != nil {
+        if CustomUserDefault.getUserData() != nil && !isComeFromSignUp {
             let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "TabBarViewController") as! TabBarViewController
             AppUserDefaults.setValue(true, forKey: "isLogin")
             self.navigationController?.pushViewController(vc, animated: true)
@@ -102,7 +102,14 @@ class LoginVC: UIViewController {
     
     //MARK: IBAction
     @IBAction func backBtnClicked(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+   
+        if self.isLoggedIn && AppUserDefaults.value(forKey: "IMEI") != nil {
+            self.navigationController?.popViewController(animated: true)
+        }else {
+            let vc = DesignManager.loadViewControllerFromDashboardStoryBoard(identifier: "TabBarViewController") as! TabBarViewController
+            AppUserDefaults.setValue(false, forKey: "isLogin")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func passwordEyeBtnClicked(_ sender: UIButton) {

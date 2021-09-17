@@ -142,8 +142,8 @@ class SignUpVC: UIViewController {
                     
                     if json["status"] == "Success" {
                         
-                        let userLoginData = UserData.init(json: json)
-                        CustomUserDefault.saveUserData(modal: userLoginData.userMsg ?? UserMsg(object: [:]))
+                        //let userLoginData = UserData.init(json: json)
+                        //CustomUserDefault.saveUserData(modal: userLoginData.userMsg ?? UserMsg(object: [:]))
                         
                         let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "LoginVC") as! LoginVC
                         vc.isComeFromSignUp = true

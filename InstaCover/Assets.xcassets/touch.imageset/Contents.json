@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "deadPixel.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "touch.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

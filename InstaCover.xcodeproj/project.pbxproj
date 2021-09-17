@@ -32,6 +32,7 @@
 		592ED69B26CBB183008B2023 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592ED69326CBB182008B2023 /* ResultCell.swift */; };
 		592ED69C26CBB183008B2023 /* SkipTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592ED69426CBB182008B2023 /* SkipTestCell.swift */; };
 		592ED69D26CBB183008B2023 /* TestResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592ED69526CBB182008B2023 /* TestResultCell.xib */; };
+		5957EA0C26F44EC200856D05 /* dead-pixel.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5957EA0B26F44EC200856D05 /* dead-pixel.gif */; };
 		59589CED26E8C7D8000BEBF1 /* FeatureTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59589CEB26E8C7D8000BEBF1 /* FeatureTblCell.swift */; };
 		59589CEE26E8C7D8000BEBF1 /* FeatureTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59589CEC26E8C7D8000BEBF1 /* FeatureTblCell.xib */; };
 		595BA64326E2337100F24CC3 /* DiagnosisModePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA64226E2337100F24CC3 /* DiagnosisModePopUpVC.swift */; };
@@ -228,6 +229,7 @@
 		592ED69326CBB182008B2023 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		592ED69426CBB182008B2023 /* SkipTestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipTestCell.swift; sourceTree = "<group>"; };
 		592ED69526CBB182008B2023 /* TestResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestResultCell.xib; sourceTree = "<group>"; };
+		5957EA0B26F44EC200856D05 /* dead-pixel.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "dead-pixel.gif"; sourceTree = "<group>"; };
 		59589CEB26E8C7D8000BEBF1 /* FeatureTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTblCell.swift; sourceTree = "<group>"; };
 		59589CEC26E8C7D8000BEBF1 /* FeatureTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTblCell.xib; sourceTree = "<group>"; };
 		595BA64226E2337100F24CC3 /* DiagnosisModePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisModePopUpVC.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 		596C0AA926BBA72900D257B1 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				5957EA0B26F44EC200856D05 /* dead-pixel.gif */,
 				59A1EADE26C6343B0015BE96 /* Magnifying_Glass.gif */,
 				59A1EAD926C6343A0015BE96 /* Countdown.gif */,
 				59A1EADB26C6343B0015BE96 /* Phone_Rotation _Portrait.gif */,
@@ -1117,6 +1120,7 @@
 				592ED66626CBADFB008B2023 /* InstaCash.storyboard in Resources */,
 				596C0AD126BBA83700D257B1 /* eight.wav in Resources */,
 				59589CEE26E8C7D8000BEBF1 /* FeatureTblCell.xib in Resources */,
+				5957EA0C26F44EC200856D05 /* dead-pixel.gif in Resources */,
 				5980525D26D60F1500A26B08 /* Montserrat-Italic.ttf in Resources */,
 				5980525C26D60F1500A26B08 /* Montserrat-Regular.ttf in Resources */,
 				597A918926DE2E7D00BCDBB3 /* GoogleService-Info.plist in Resources */,

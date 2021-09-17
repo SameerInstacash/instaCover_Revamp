@@ -163,6 +163,7 @@ class DeadPixelsVC: UIViewController {
         self.countLbl.font = UIFont.init(name: AppFontSemiBold, size: self.countLbl.font.pointSize)
         self.diagnoseProgressView.progressTintColor = AppThemeColor
     
+        self.testImgView.loadGif(name: "dead-pixel")
         
         // MultiLingual
         self.startBtn.setTitle(self.getLocalizatioStringValue(key: "Start").uppercased(), for: .normal)
