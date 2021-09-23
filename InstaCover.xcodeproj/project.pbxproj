@@ -164,7 +164,7 @@
 		5980525F26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */; };
 		5980526C26D64DAC00A26B08 /* Faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526826D64DA800A26B08 /* Faq.swift */; };
 		5980526D26D64DAC00A26B08 /* FaqList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526926D64DAA00A26B08 /* FaqList.swift */; };
-		5996019A26FC5438003292A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5996019926FC5437003292A7 /* GoogleService-Info.plist */; };
+		5994A20426FC658C0048A09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5994A20326FC658C0048A09E /* GoogleService-Info.plist */; };
 		599BDAE126D7BCFC00E63436 /* UserMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDADF26D7BCFB00E63436 /* UserMsg.swift */; };
 		599BDAE226D7BCFC00E63436 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDAE026D7BCFC00E63436 /* UserData.swift */; };
 		59A1EAD126C630C00015BE96 /* EligibleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1EAD026C630C00015BE96 /* EligibleVC.swift */; };
@@ -375,7 +375,8 @@
 		5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5980526826D64DA800A26B08 /* Faq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faq.swift; sourceTree = "<group>"; };
 		5980526926D64DAA00A26B08 /* FaqList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqList.swift; sourceTree = "<group>"; };
-		5996019926FC5437003292A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5994A20326FC658C0048A09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5996019B26FC5CAA003292A7 /* InstaCover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaCover.entitlements; sourceTree = "<group>"; };
 		599BDADF26D7BCFB00E63436 /* UserMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMsg.swift; sourceTree = "<group>"; };
 		599BDAE026D7BCFC00E63436 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		59A1EAD026C630C00015BE96 /* EligibleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibleVC.swift; sourceTree = "<group>"; };
@@ -573,6 +574,7 @@
 		596C0A3F26BBA32000D257B1 /* InstaCover */ = {
 			isa = PBXGroup;
 			children = (
+				5996019B26FC5CAA003292A7 /* InstaCover.entitlements */,
 				5963B7A026DA3CA500EAD8B3 /* iPaySDK */,
 				596C0AA926BBA72900D257B1 /* Gifs */,
 				596C0AA826BBA71100D257B1 /* Mp3 */,
@@ -587,7 +589,7 @@
 				596C0A9E26BBA61200D257B1 /* Storyboards */,
 				596C0A4926BBA32200D257B1 /* Assets.xcassets */,
 				596C0A4E26BBA32200D257B1 /* Info.plist */,
-				5996019926FC5437003292A7 /* GoogleService-Info.plist */,
+				5994A20326FC658C0048A09E /* GoogleService-Info.plist */,
 				596C0AAA26BBA77C00D257B1 /* InstaCover-Bridging-Header.h */,
 			);
 			path = InstaCover;
@@ -1093,7 +1095,7 @@
 				59A1EAE126C6343B0015BE96 /* Countdown.gif in Resources */,
 				596C0B0A26BBB38100D257B1 /* OpenSans-LightItalic.ttf in Resources */,
 				5980525226D60F1500A26B08 /* Montserrat-ExtraLight.ttf in Resources */,
-				5996019A26FC5438003292A7 /* GoogleService-Info.plist in Resources */,
+				5994A20426FC658C0048A09E /* GoogleService-Info.plist in Resources */,
 				596C0B0E26BBB38100D257B1 /* OpenSans-SemiBold.ttf in Resources */,
 				596A118526C520050022F17D /* Faq.storyboard in Resources */,
 				596A118026C51FE30022F17D /* Home.storyboard in Resources */,
@@ -1489,6 +1491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4.5;
 				DEVELOPMENT_TEAM = FPA74MVT87;
@@ -1520,6 +1523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4.5;
 				DEVELOPMENT_TEAM = FPA74MVT87;
