@@ -43,7 +43,7 @@ class AlternateEmailVC: UIViewController {
     
     //MARK: IBAction
     @IBAction func backBtnClicked(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {

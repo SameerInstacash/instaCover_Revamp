@@ -3391,7 +3391,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDL-2e-O8U">
-                                <rect key="frame" x="20" y="400.5" width="335" height="56"/>
+                                <rect key="frame" x="20" y="400.5" width="335" height="65.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3679,7 +3679,7 @@
             <size key="intrinsicContentSize" width="55" height="34"/>
         </designable>
         <designable name="gLZ-yr-tIU">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="38" height="37"/>
         </designable>
         <designable name="ooZ-Wm-P1m">
             <size key="intrinsicContentSize" width="55" height="34"/>

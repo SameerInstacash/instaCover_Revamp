@@ -54,7 +54,7 @@ class VolumeButtonVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.audioSession.removeObserver(self, forKeyPath: "outputVolume", context: nil)
+        //self.audioSession.removeObserver(self, forKeyPath: "outputVolume", context: nil)
     }
     
     // MARK: Custom Methods
@@ -136,6 +136,8 @@ class VolumeButtonVC: UIViewController {
                                 AppResultString = AppResultString.replacingOccurrences(of: "CISS02;", with: "")
                             }
                             
+                            self.audioSession.removeObserver(self, forKeyPath: "outputVolume", context: nil)
+                            
                             if self.isComingFromDiagnosticTestResult {
                                 
                                 guard let didFinishRetryDiagnosis = self.volumeRetryDiagnosis else { return }
@@ -173,6 +175,8 @@ class VolumeButtonVC: UIViewController {
                             if AppResultString.contains("CISS02;") {
                                 AppResultString = AppResultString.replacingOccurrences(of: "CISS02;", with: "")
                             }
+                            
+                            self.audioSession.removeObserver(self, forKeyPath: "outputVolume", context: nil)
                             
                             if self.isComingFromDiagnosticTestResult {
                                 
@@ -239,6 +243,8 @@ class VolumeButtonVC: UIViewController {
             if !AppResultString.contains("CISS02;") {
                 AppResultString = AppResultString + "CISS02;"
             }
+            
+            self.audioSession.removeObserver(self, forKeyPath: "outputVolume", context: nil)
             
             if self.isComingFromDiagnosticTestResult {
                                     

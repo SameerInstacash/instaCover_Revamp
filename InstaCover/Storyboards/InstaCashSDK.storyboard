@@ -204,26 +204,26 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI : 000000000000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-Eh-znr">
-                                <rect key="frame" x="20" y="64" width="335" height="34.5"/>
+                                <rect key="frame" x="20" y="64" width="335" height="29.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAU-V7-iSm">
-                                <rect key="frame" x="20" y="108.5" width="335" height="30"/>
+                                <rect key="frame" x="20" y="103.5" width="335" height="26"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fl-c2-Ypk">
-                                <rect key="frame" x="20" y="162" width="335" height="343.5"/>
+                                <rect key="frame" x="20" y="207.5" width="335" height="252"/>
                                 <string key="text">You will receive an e-mail from us shortly Please wait for a few seconds.                                                                                   If you do not receive the email, please check your spam folder just in case the email got delivered there instead of your inbox. If so, select the email and click "Not spam".\n\nPlease do not close this application.\n\nDial *#06# to view your IMEI number.\n\nTake a video of the device IMEI screen using an alternative phone or laptop.\n\nKindly wait for a confirmation email after shooting video.</string>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="9yK-ac-Xdc">
-                                <rect key="frame" x="157.5" y="545.5" width="60" height="60"/>
+                                <rect key="frame" x="157.5" y="499.5" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="6UR-aJ-Vbm"/>
                                     <constraint firstAttribute="height" constant="60" id="Owi-Bk-LUc"/>

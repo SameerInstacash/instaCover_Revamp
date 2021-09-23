@@ -100,7 +100,7 @@ class UploadVideoVC: UIViewController {
     
     //MARK: IBAction
     @IBAction func backBtnClicked(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK:- Web Service Methods
@@ -120,7 +120,7 @@ class UploadVideoVC: UIViewController {
             "apiKey" : "instaCover",
             "quotationId" : AppDelegate.sharedDelegate().insuredQuotationID,
             "email" : self.userEmail ?? "",
-            "customerId" : userData?.internalIdentifier ?? ""
+            "customerId" : userData?.internalIdentifier ?? AppDelegate.sharedDelegate().currentCustomerID
         ]
         
         //print(params)

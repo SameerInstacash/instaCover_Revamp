@@ -272,6 +272,8 @@ class AccountTabVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                             
                             let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "DeviceDetectVC") as! DeviceDetectVC
                             
+                            AppDelegate.sharedDelegate().currentCustomerID = json["msg"]["customerId"].stringValue
+                            
                             vc.productName = json["msg"]["productName"].stringValue
                             vc.policyName = json["msg"]["policyName"].stringValue
                             vc.productId = json["msg"]["productId"].stringValue

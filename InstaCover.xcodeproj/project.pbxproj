@@ -140,7 +140,6 @@
 		5973F6B426BC0A52004048C3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6B326BC0A52004048C3 /* TabBarViewController.swift */; };
 		5979C01326E5E53A00F145DE /* UploadVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01226E5E53A00F145DE /* UploadVideoVC.swift */; };
 		5979C01526E5EA9A00F145DE /* AlternateEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */; };
-		597A918926DE2E7D00BCDBB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 597A918826DE2E7D00BCDBB3 /* GoogleService-Info.plist */; };
 		597C3AFC26C38AE600742B66 /* FaqAnswerTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597C3AFA26C38AE600742B66 /* FaqAnswerTblCell.swift */; };
 		597C3AFD26C38AE600742B66 /* FaqAnswerTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597C3AFB26C38AE600742B66 /* FaqAnswerTblCell.xib */; };
 		5980523726D5FAC900A26B08 /* StartDiagnoseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980523626D5FAC900A26B08 /* StartDiagnoseVC.swift */; };
@@ -165,6 +164,7 @@
 		5980525F26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */; };
 		5980526C26D64DAC00A26B08 /* Faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526826D64DA800A26B08 /* Faq.swift */; };
 		5980526D26D64DAC00A26B08 /* FaqList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526926D64DAA00A26B08 /* FaqList.swift */; };
+		5996019A26FC5438003292A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5996019926FC5437003292A7 /* GoogleService-Info.plist */; };
 		599BDAE126D7BCFC00E63436 /* UserMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDADF26D7BCFB00E63436 /* UserMsg.swift */; };
 		599BDAE226D7BCFC00E63436 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDAE026D7BCFC00E63436 /* UserData.swift */; };
 		59A1EAD126C630C00015BE96 /* EligibleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1EAD026C630C00015BE96 /* EligibleVC.swift */; };
@@ -351,7 +351,6 @@
 		5973F6B326BC0A52004048C3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5979C01226E5E53A00F145DE /* UploadVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVideoVC.swift; sourceTree = "<group>"; };
 		5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateEmailVC.swift; sourceTree = "<group>"; };
-		597A918826DE2E7D00BCDBB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		597C3AFA26C38AE600742B66 /* FaqAnswerTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqAnswerTblCell.swift; sourceTree = "<group>"; };
 		597C3AFB26C38AE600742B66 /* FaqAnswerTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqAnswerTblCell.xib; sourceTree = "<group>"; };
 		5980523626D5FAC900A26B08 /* StartDiagnoseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDiagnoseVC.swift; sourceTree = "<group>"; };
@@ -376,6 +375,7 @@
 		5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5980526826D64DA800A26B08 /* Faq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faq.swift; sourceTree = "<group>"; };
 		5980526926D64DAA00A26B08 /* FaqList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqList.swift; sourceTree = "<group>"; };
+		5996019926FC5437003292A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		599BDADF26D7BCFB00E63436 /* UserMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMsg.swift; sourceTree = "<group>"; };
 		599BDAE026D7BCFC00E63436 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		59A1EAD026C630C00015BE96 /* EligibleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibleVC.swift; sourceTree = "<group>"; };
@@ -587,7 +587,7 @@
 				596C0A9E26BBA61200D257B1 /* Storyboards */,
 				596C0A4926BBA32200D257B1 /* Assets.xcassets */,
 				596C0A4E26BBA32200D257B1 /* Info.plist */,
-				597A918826DE2E7D00BCDBB3 /* GoogleService-Info.plist */,
+				5996019926FC5437003292A7 /* GoogleService-Info.plist */,
 				596C0AAA26BBA77C00D257B1 /* InstaCover-Bridging-Header.h */,
 			);
 			path = InstaCover;
@@ -1093,6 +1093,7 @@
 				59A1EAE126C6343B0015BE96 /* Countdown.gif in Resources */,
 				596C0B0A26BBB38100D257B1 /* OpenSans-LightItalic.ttf in Resources */,
 				5980525226D60F1500A26B08 /* Montserrat-ExtraLight.ttf in Resources */,
+				5996019A26FC5438003292A7 /* GoogleService-Info.plist in Resources */,
 				596C0B0E26BBB38100D257B1 /* OpenSans-SemiBold.ttf in Resources */,
 				596A118526C520050022F17D /* Faq.storyboard in Resources */,
 				596A118026C51FE30022F17D /* Home.storyboard in Resources */,
@@ -1123,7 +1124,6 @@
 				5957EA0C26F44EC200856D05 /* dead-pixel.gif in Resources */,
 				5980525D26D60F1500A26B08 /* Montserrat-Italic.ttf in Resources */,
 				5980525C26D60F1500A26B08 /* Montserrat-Regular.ttf in Resources */,
-				597A918926DE2E7D00BCDBB3 /* GoogleService-Info.plist in Resources */,
 				5980525926D60F1500A26B08 /* Montserrat-ExtraBold.ttf in Resources */,
 				596480DD26C2A9F10054CAB0 /* FaqQuestionTblCell.xib in Resources */,
 				59A1EAE226C6343B0015BE96 /* Eligible.gif in Resources */,
@@ -1490,6 +1490,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4.5;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
@@ -1502,12 +1503,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/InstaCover/iPaySDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.get.InstaCover;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.get.instacover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstaCover/InstaCover-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1519,6 +1521,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4.5;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
@@ -1531,11 +1534,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/InstaCover/iPaySDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.get.InstaCover;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.get.instacover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstaCover/InstaCover-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

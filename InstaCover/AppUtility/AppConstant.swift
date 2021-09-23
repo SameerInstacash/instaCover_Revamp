@@ -56,8 +56,8 @@ struct AppURL {
     #else
         //static let AppBaseUrl = "https://sbox.getinstacash.in:5000/api/"
         
-        static let AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
-        //static let AppBaseUrl = "https://coverapi.getinstacash.com.my/index.php/"
+        //static let AppBaseUrl = "https://instacover-uat.getinstacash.in/index.php/"
+        static let AppBaseUrl = "https://coverapi.getinstacash.com.my/index.php/"
     #endif
     
     
@@ -80,7 +80,7 @@ struct AppURL {
     static let kGetQuoteData = AppBaseUrl + "Quote/getQuoteData"
     static let kSendVideoLink = AppBaseUrl + "sendVideoLink"
     static let kUploadVideoCheck = AppBaseUrl + "uploadVideoCheck"
-    
+    static let kSetiPayTransaction = AppBaseUrl + "setiPayTransaction"
     
     static let kSaveMobile = AppBaseUrl + "saveMobile"
     static let kGetCustomerType = AppBaseUrl + "getCustomerType"

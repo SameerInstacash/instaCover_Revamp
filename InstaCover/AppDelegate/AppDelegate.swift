@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window : UIWindow?
     var nav : UINavigationController?
     
+    var currentCustomerID : String = ""
     var currentProductID : String = ""
     var isCurrentDevice : Bool = true
     var selectedProductName : String = ""

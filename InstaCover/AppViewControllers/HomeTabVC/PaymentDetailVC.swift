@@ -134,7 +134,7 @@ class PaymentDetailVC: UIViewController {
         requeryPayment?.merchantKey = "lObOlu9PD3" //viewModel.detail.merchantKey
         requeryPayment?.merchantCode = "M28460_S0002" //viewModel.detail.merchantCode
         requeryPayment?.refNo = AppDelegate.sharedDelegate().insuredQuotationID //viewModel.detail.refNo
-        requeryPayment?.amount = "1" //AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
+        requeryPayment?.amount = AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
         requeryPayment?.currency = "MYR" //viewModel.detail.currency
         requeryPayment?.prodDesc = AppDelegate.sharedDelegate().insurance + " with " + AppDelegate.sharedDelegate().selectedTerm //viewModel.detail.productDescription
         requeryPayment?.userName = userData?.name //viewModel.detail.customerName
@@ -143,8 +143,9 @@ class PaymentDetailVC: UIViewController {
         requeryPayment?.remark = AppUserDefaults.value(forKey: "IMEI") as? String ?? ""  //viewModel.detail.remark
         requeryPayment?.lang = "ISO-8859-1" //viewModel.detail.language
         requeryPayment?.country = "MY" //viewModel.detail.country
-        requeryPayment?.backendPostURL = "https://instacover-uat.getinstacash.in/index.php/setiPayTransaction" //viewModel.detail.backendURL
-        
+        //requeryPayment?.backendPostURL = "https://instacover-uat.getinstacash.in/index.php/setiPayTransaction" //viewModel.detail.backendURL
+        requeryPayment?.backendPostURL = AppURL.kSetiPayTransaction
+                
         /* 2. SDK inititalization */
         paymentSDK = Ipay()
         paymentSDK?.delegate = self
@@ -195,7 +196,6 @@ class PaymentDetailVC: UIViewController {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "Please Check Internet connection."))
         }
                 
-        //self.initiateIpay88SDK()
     }
     
     //MARK:- Web Service Methods
@@ -252,8 +252,10 @@ class PaymentDetailVC: UIViewController {
                             self.initiateIpay88SDK()
                             
                         }else {
-                            let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
+                            //self.navigationController?.pushViewController(vc, animated: true)
+                            
+                            self.initiateIpay88SDK()
                         }
                                              
                     }else {
