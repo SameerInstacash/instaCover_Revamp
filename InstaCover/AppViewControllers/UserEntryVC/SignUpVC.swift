@@ -9,14 +9,21 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import JGProgressHUD
+import FacebookCore
+import FBSDKCoreKit
+import WebKit
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     @IBOutlet weak var txtFieldName: UITextField!
     @IBOutlet weak var txtFieldEmail: UITextField!
     @IBOutlet weak var txtFieldContact: UITextField!
     @IBOutlet weak var btnYes: UIButton!
     @IBOutlet weak var btnNo: UIButton!
+    
+    @IBOutlet weak var baseWebView: UIView!
+    @IBOutlet weak var webviewHeightConstraint: NSLayoutConstraint!
+    var webView: WKWebView!
 
     let hud = JGProgressHUD()
     let reachability: Reachability? = Reachability()
@@ -26,12 +33,15 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
 
         self.setUIElements()
+        
+        self.LoadWebView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.btnYes.isSelected = true
+        
     }
     
     //MARK: Custom Methods
@@ -144,6 +154,16 @@ class SignUpVC: UIViewController {
                         
                         //let userLoginData = UserData.init(json: json)
                         //CustomUserDefault.saveUserData(modal: userLoginData.userMsg ?? UserMsg(object: [:]))
+                                                
+                        
+                        AppEvents.logEvent(AppEvents.Name.completedRegistration, parameters: [AppEvents.ParameterName.registrationMethod.rawValue : "email_registration"])
+                        
+                        
+                        /*
+                        let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: AppEvents.ParameterName.registrationMethod.rawValue) : "email_registration"]
+                        AppEvents.logEvent(AppEvents.Name.purchased, parameters: fbParameters)
+                        */
+                        
                         
                         let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "LoginVC") as! LoginVC
                         vc.isComeFromSignUp = true
@@ -175,4 +195,100 @@ class SignUpVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
+    //MARK: Custom Methods
+    func LoadWebView() {
+        webView = self.addWKWebView(viewForWeb: self.baseWebView)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        webView.scrollView.isScrollEnabled = false
+        
+                
+        let html = "<html style='text-align: center;'>By clicking the 'Sign Up' button, you have agreed to the <a href='https://shop.compasia.com/pages/privacy-policy'> Privacy Policy</a> and <a href='https://cover-uat.getinstacash.in/termsAndConditions.php'> Terms & Conditions</a></html>"
+        
+        let headerString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
+        
+        
+        let htmlString = """
+            <style>
+            @font-face
+            {
+                font-family: 'OpenSans';
+                font-weight: normal;
+                src: url(OpenSans-Regular.ttf);
+            }
+            a:link
+            {
+                color: \(AppFirstThemeColorHexString);
+            }
+            </style>
+                        <span style="font-family: 'OpenSans'; font-weight: normal; font-size: 14; color: gray">\(headerString + html)</span>
+            """
+                
+        webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
+        
+    }
+    
+    func addWKWebView(viewForWeb:UIView) -> WKWebView {
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+    
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.preferences = preferences
+        
+        //let webView = WKWebView(frame: viewForWeb.frame, configuration: webConfiguration)
+        let webView = WKWebView(frame: CGRect.init(x: 10.0, y: 10.0, width: self.baseWebView.bounds.width - 20.0, height: self.baseWebView.bounds.height - 20.0), configuration: webConfiguration)
+        
+        //webView.frame.origin = CGPoint.init(x: 0, y: 0)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        ///webView.frame.size = viewForWeb.frame.size
+        //webView.center = viewForWeb.center
+        viewForWeb.addSubview(webView)
+        return webView
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard case .linkActivated = navigationAction.navigationType,
+              let url = navigationAction.request.url
+        else {
+            decisionHandler(.allow)
+            return
+        }
+        decisionHandler(.cancel)
+        
+        if navigationAction.request.url?.lastPathComponent == "termsAndConditions.php" {
+            
+            DispatchQueue.main.async {
+                let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "WebViewVC") as! WebViewVC
+                vc.isComeFrom = "Terms & Conditions"
+                vc.loadableUrlStr = url.absoluteString
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }else if navigationAction.request.url?.lastPathComponent == "privacy-policy" {
+            
+            DispatchQueue.main.async {
+                let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "WebViewVC") as! WebViewVC
+                vc.isComeFrom = "Privacy Policy"
+                vc.loadableUrlStr = url.absoluteString
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }else {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                // openURL(_:) is deprecated in iOS 10+.
+                UIApplication.shared.openURL(url)
+            }
+        }
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("document.documentElement.scrollHeight", completionHandler: { (height, error) in
+            self.webviewHeightConstraint?.constant = (height as! CGFloat) + 20.0
+        })
+    }
+    
 }

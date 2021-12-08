@@ -10,6 +10,8 @@ import JGProgressHUD
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import FacebookCore
+import FBSDKCoreKit
 
 class PaymentDetailVC: UIViewController {
 
@@ -190,7 +192,15 @@ class PaymentDetailVC: UIViewController {
         
         if reachability?.connection.description != "No Connection" {
             if self.validation() {
-                self.saveCustomerQuote()
+                //self.saveCustomerQuote()
+                
+                self.showAlert(title: "Reminder", message: "After the payment is successful. You requires to complete the device diagnosis to entitle to the service", alertButtonTitles: ["Cancel","Ok"], alertButtonStyles: [.destructive, .default], vc: self) { index in
+                    
+                    if index == 1 {
+                        self.saveCustomerQuote()
+                    }
+                }
+                
             }
         }else {
             self.showaAlert(message: self.getLocalizatioStringValue(key: "Please Check Internet connection."))
@@ -248,6 +258,29 @@ class PaymentDetailVC: UIViewController {
                             
                             //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             //self.navigationController?.pushViewController(vc, animated: true)
+                            
+                            
+                            let fbParameters: [String: Any] = ["CONTENT" : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
+                                                             "CONTENT_ID" : AppDelegate.sharedDelegate().selectedPolicyID,
+                                                             "CONTENT_TYPE" : UIDevice.current.currentModelName,
+                                                             "NUM_ITEMS" : "1",
+                                                             "INFO_AVAILABLE" : "0",
+                                                             "CURRENCY" : "MYR"]
+
+                          
+                            AppEvents.logEvent(AppEvents.Name.initiatedCheckout, parameters: fbParameters)
+                            
+                            
+                            /*
+                            let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: "CONTENT") : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
+                                                                                AppEvents.ParameterName.init(rawValue: "CONTENT_ID") : AppDelegate.sharedDelegate().selectedPolicyID,
+                                                                                AppEvents.ParameterName.init(rawValue: "CONTENT_TYPE") : UIDevice.current.currentModelName,
+                                                                                AppEvents.ParameterName.init(rawValue: "NUM_ITEMS") : "1",
+                                                                                AppEvents.ParameterName.init(rawValue: "INFO_AVAILABLE") : "0",
+                                                                                AppEvents.ParameterName.init(rawValue: "CURRENCY") : "MYR"]
+                            
+                            AppEvents.logEvent(AppEvents.Name.initiatedCheckout, parameters: fbParameters)
+                            */
                             
                             self.initiateIpay88SDK()
                             
@@ -308,6 +341,19 @@ class PaymentDetailVC: UIViewController {
                         self.apiCount = 0
                         
                         AppDelegate.sharedDelegate().referenceNumber = json["msg"]["referenceNumber"].stringValue
+                        
+                        
+                        
+                        let fbParameters: [String: Any] = ["amount" : AppDelegate.sharedDelegate().insuredAmount]
+                        AppEvents.logEvent(AppEvents.Name.purchased, parameters: fbParameters)
+                        
+                        
+                        /*
+                        let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: "amount") : AppDelegate.sharedDelegate().insuredAmount]
+                        AppEvents.logEvent(AppEvents.Name.purchased, parameters: fbParameters)
+                        */
+                        
+                        
                         
                         let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                         self.navigationController?.pushViewController(vc, animated: true)

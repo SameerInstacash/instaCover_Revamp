@@ -46,7 +46,8 @@ class LoginVC: UIViewController {
         DispatchQueue.main.async {
             
             if self.isComeFromSignUp {
-                self.lblLoginMsg.text = "You need to confirm your account.\nPlease check your email to activate your account."
+                //self.lblLoginMsg.text = "You need to confirm your account.\nPlease check your email to activate your account."
+                self.lblLoginMsg.text = "Great! We mailed you the password"
                 self.btnSkipHeight.constant = 0
                 self.btnSkipBottom.constant = 0
                 self.btnSkip.isHidden = true
@@ -126,6 +127,11 @@ class LoginVC: UIViewController {
     
     @IBAction func forgotPasswordBtnClicked(_ sender: UIButton) {
         let vc = DesignManager.loadViewControllerFromMainStoryBoard(identifier: "ForgotPasswordVC") as! ForgotPasswordVC
+        vc.isForgotPW = { 
+            DispatchQueue.main.async {
+                self.lblLoginMsg.text = "Great! We mailed you the password"
+            }
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

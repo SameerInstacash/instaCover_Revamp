@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -138,6 +138,9 @@
 		5973F6AA26BC0986004048C3 /* AccountTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6A926BC0986004048C3 /* AccountTabVC.swift */; };
 		5973F6AF26BC0A1E004048C3 /* EntryNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6AE26BC0A1E004048C3 /* EntryNavigationVC.swift */; };
 		5973F6B426BC0A52004048C3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973F6B326BC0A52004048C3 /* TabBarViewController.swift */; };
+		5979AC32272D6C67000618A4 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5979AC31272D6C67000618A4 /* FacebookCore */; };
+		5979AC34272D6C67000618A4 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5979AC33272D6C67000618A4 /* FacebookLogin */; };
+		5979AC36272D6C67000618A4 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 5979AC35272D6C67000618A4 /* FacebookShare */; };
 		5979C01326E5E53A00F145DE /* UploadVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01226E5E53A00F145DE /* UploadVideoVC.swift */; };
 		5979C01526E5EA9A00F145DE /* AlternateEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979C01426E5EA9A00F145DE /* AlternateEmailVC.swift */; };
 		597C3AFC26C38AE600742B66 /* FaqAnswerTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597C3AFA26C38AE600742B66 /* FaqAnswerTblCell.swift */; };
@@ -164,6 +167,7 @@
 		5980525F26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */; };
 		5980526C26D64DAC00A26B08 /* Faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526826D64DA800A26B08 /* Faq.swift */; };
 		5980526D26D64DAC00A26B08 /* FaqList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980526926D64DAA00A26B08 /* FaqList.swift */; };
+		59889C2D2760AB310090330B /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59889C2C2760AB310090330B /* WebViewVC.swift */; };
 		5994A20426FC658C0048A09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5994A20326FC658C0048A09E /* GoogleService-Info.plist */; };
 		599BDAE126D7BCFC00E63436 /* UserMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDADF26D7BCFB00E63436 /* UserMsg.swift */; };
 		599BDAE226D7BCFC00E63436 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599BDAE026D7BCFC00E63436 /* UserData.swift */; };
@@ -375,6 +379,7 @@
 		5980524C26D60F1500A26B08 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5980526826D64DA800A26B08 /* Faq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faq.swift; sourceTree = "<group>"; };
 		5980526926D64DAA00A26B08 /* FaqList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqList.swift; sourceTree = "<group>"; };
+		59889C2C2760AB310090330B /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		5994A20326FC658C0048A09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5996019B26FC5CAA003292A7 /* InstaCover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaCover.entitlements; sourceTree = "<group>"; };
 		599BDADF26D7BCFB00E63436 /* UserMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMsg.swift; sourceTree = "<group>"; };
@@ -401,7 +406,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5979AC34272D6C67000618A4 /* FacebookLogin in Frameworks */,
 				81C281C6DFA110B49784ED88 /* Pods_InstaCover.framework in Frameworks */,
+				5979AC32272D6C67000618A4 /* FacebookCore in Frameworks */,
+				5979AC36272D6C67000618A4 /* FacebookShare in Frameworks */,
 				5963B7A426DA3CBE00EAD8B3 /* libipay88sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,6 +869,7 @@
 				5973F65E26BBE9B6004048C3 /* ForgotPasswordVC.swift */,
 				5973F66326BBF00A004048C3 /* SignUpVC.swift */,
 				5973F6AE26BC0A1E004048C3 /* EntryNavigationVC.swift */,
+				59889C2C2760AB310090330B /* WebViewVC.swift */,
 			);
 			path = UserEntryVC;
 			sourceTree = "<group>";
@@ -968,6 +977,11 @@
 			dependencies = (
 			);
 			name = InstaCover;
+			packageProductDependencies = (
+				5979AC31272D6C67000618A4 /* FacebookCore */,
+				5979AC33272D6C67000618A4 /* FacebookLogin */,
+				5979AC35272D6C67000618A4 /* FacebookShare */,
+			);
 			productName = InstaCover;
 			productReference = 596C0A3D26BBA32000D257B1 /* InstaCover.app */;
 			productType = "com.apple.product-type.application";
@@ -1040,6 +1054,9 @@
 				Base,
 			);
 			mainGroup = 596C0A3426BBA32000D257B1;
+			packageReferences = (
+				5979AC30272D6C66000618A4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 596C0A3E26BBA32000D257B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1246,6 +1263,7 @@
 				5980526D26D64DAC00A26B08 /* FaqList.swift in Sources */,
 				5973F6A026BC096A004048C3 /* FaqTabVC.swift in Sources */,
 				5973F6B426BC0A52004048C3 /* TabBarViewController.swift in Sources */,
+				59889C2D2760AB310090330B /* WebViewVC.swift in Sources */,
 				596C0AB426BBA77E00D257B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				59FCD6A326C1156C00F9B924 /* CustomerRequestTblCell.swift in Sources */,
 				59687E9326C6A8B500A9A435 /* Terms.swift in Sources */,
@@ -1493,7 +1511,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.5;
+				CURRENT_PROJECT_VERSION = 4.6;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
@@ -1506,7 +1524,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/InstaCover/iPaySDK",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.get.instacover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstaCover/InstaCover-Bridging-Header.h";
@@ -1525,7 +1543,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.5;
+				CURRENT_PROJECT_VERSION = 4.6;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
@@ -1538,7 +1556,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/InstaCover/iPaySDK",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.get.instacover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstaCover/InstaCover-Bridging-Header.h";
@@ -1671,6 +1689,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5979AC30272D6C66000618A4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5979AC31272D6C67000618A4 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5979AC30272D6C66000618A4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		5979AC33272D6C67000618A4 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5979AC30272D6C66000618A4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		5979AC35272D6C67000618A4 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5979AC30272D6C66000618A4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 596C0A3526BBA32000D257B1 /* Project object */;
 }

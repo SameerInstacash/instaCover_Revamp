@@ -8,6 +8,8 @@
 import UIKit
 import SwiftyJSON
 import Firebase
+import FacebookCore
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,10 +40,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        
+        // Set AdvertiserTrackingEnabled to true if a device provides consent
+        Settings.setAdvertiserTrackingEnabled(true)
+        
+        Settings.isAutoLogAppEventsEnabled = true
+        
+        Settings.isAdvertiserIDCollectionEnabled = true
+        
         return true
     }
     
     //MARK: Custom Methods
+    
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
     
     func navigateToLoginScreen() {
         DispatchQueue.main.async { [self] in

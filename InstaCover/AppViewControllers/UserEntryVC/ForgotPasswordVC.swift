@@ -11,6 +11,8 @@ import SwiftyJSON
 import JGProgressHUD
 
 class ForgotPasswordVC: UIViewController {
+    
+    var isForgotPW : (()-> Void)?
 
     @IBOutlet weak var txtFieldEmail: UITextField!
     @IBOutlet weak var btnForgotPassword: UIButton!
@@ -103,9 +105,17 @@ class ForgotPasswordVC: UIViewController {
                     if json["status"] == "Success" {
                         
                         self.showAlert(title: "", message: json["msg"].stringValue, alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self) { index in
+                            
                             self.navigationController?.popViewController(animated: true)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                if let forgot = self.isForgotPW {
+                                    forgot()
+                                }
+                            }
+                            
                         }
-                     
+                        
                     }else {
                         self.showaAlert(message: json["msg"].stringValue)
                     }
