@@ -46,9 +46,13 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     @IBOutlet weak var featureTableView: UITableView!
     @IBOutlet weak var heightOfFeatureTableView: NSLayoutConstraint!
     
-    var arrAboutImage = [#imageLiteral(resourceName: "openForAll"),#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "supportTeam"),#imageLiteral(resourceName: "flexibility")]
-    var arrAboutTitle = ["OPEN FOR ALL","FAST APPLICATION","SUPPORT TEAM","FLEXIBILITY"]
-    var arrAboutSubTitle = ["No restriction on customer profiles","No supporting documents required","Dedicated customer service officers","Wide selection of models accepted"]
+    //var arrAboutImage = [#imageLiteral(resourceName: "openForAll"),#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "supportTeam"),#imageLiteral(resourceName: "flexibility")]
+    //var arrAboutTitle = ["OPEN FOR ALL","FAST APPLICATION","SUPPORT TEAM","FLEXIBILITY"]
+    //var arrAboutSubTitle = ["No restriction on customer profiles","No supporting documents required","Dedicated customer service officers","Wide selection of models accepted"]
+    
+    var arrAboutImage = [#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "fastApproval"),#imageLiteral(resourceName: "noRequestTiming"),#imageLiteral(resourceName: "supportTeam")]
+    var arrAboutTitle = ["FAST APPLICATION","FAST APPROVAL","NO REQUEST TIMING","SUPPORT TEAM"]
+    var arrAboutSubTitle = ["No supporting documents required","a simple notification will be sufficient","request the service anytime when you want","Dedicated customer service officers"]
     
     var arrPlan = [Msg]()
     var arrProducts = [Products]()
