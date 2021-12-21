@@ -156,7 +156,7 @@ class SignUpVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
                         //CustomUserDefault.saveUserData(modal: userLoginData.userMsg ?? UserMsg(object: [:]))
                                                 
                         
-                        AppEvents.logEvent(AppEvents.Name.completedRegistration, parameters: [AppEvents.ParameterName.registrationMethod.rawValue : "email_registration"])
+                        AppEvents.logEvent(AppEvents.Name.completedRegistration, parameters: [AppEvents.ParameterName.registrationMethod : "email_registration"])
                         
                         
                         /*

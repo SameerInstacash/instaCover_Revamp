@@ -27,7 +27,8 @@ class PaymentSuccessVC: UIViewController {
         self.setUIElements()
         
         if !AppDelegate.sharedDelegate().isCurrentDevice {
-            self.lblPaymentMSG.text = "Please scan below qr code to proceed device diagnosis"
+            //self.lblPaymentMSG.text = "Please scan below qr code to proceed device diagnosis"
+            self.lblPaymentMSG.text = "Please scan below qr code to diagnose your phone to complete the InstaCover process."
             self.proceedBtnHeight.constant = 0
             //self.createQrCodeForDeivce()
             

@@ -50,9 +50,9 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     //var arrAboutTitle = ["OPEN FOR ALL","FAST APPLICATION","SUPPORT TEAM","FLEXIBILITY"]
     //var arrAboutSubTitle = ["No restriction on customer profiles","No supporting documents required","Dedicated customer service officers","Wide selection of models accepted"]
     
-    var arrAboutImage = [#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "fastApproval"),#imageLiteral(resourceName: "noRequestTiming"),#imageLiteral(resourceName: "supportTeam")]
-    var arrAboutTitle = ["FAST APPLICATION","FAST APPROVAL","NO REQUEST TIMING","SUPPORT TEAM"]
-    var arrAboutSubTitle = ["No supporting documents required","a simple notification will be sufficient","request the service anytime when you want","Dedicated customer service officers"]
+    var arrAboutImage = [#imageLiteral(resourceName: "fastApplication"),#imageLiteral(resourceName: "fastApproval"),#imageLiteral(resourceName: "24-7service"),#imageLiteral(resourceName: "supportTeam")]
+    var arrAboutTitle = ["FAST APPLICATION","FAST APPROVAL","24/7 SERVICE REQUEST","SUPPORT TEAM"]
+    var arrAboutSubTitle = ["No supporting documents required","GET NOTIFIED ON YOUR STATUS ON THE SAME DAY","request the service anytime when you want","Dedicated customer service officers"]
     
     var arrPlan = [Msg]()
     var arrProducts = [Products]()
@@ -703,7 +703,7 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                         
                         self.noDeviceView.isHidden = false
                         self.lblSelectedPlanFee.text = AppCurrency + " 0"
-                        self.lblSelectedPlanTax.text = "Incl. 0% tax"
+                        //self.lblSelectedPlanTax.text = "Incl. 0% tax"
                         
                         self.txtFieldTenure.text = "tenure"
                         self.txtFieldTenure.optionArray = []
@@ -823,20 +823,20 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                         AppDelegate.sharedDelegate().insuredServiceFee = response["msg"]["serviceFee"].string ?? "0"
                         
                         self.lblSelectedPlanFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
-                        self.lblSelectedPlanTax.text = "Incl. \(response["msg"]["taxFee"].stringValue)% tax"
+                        //self.lblSelectedPlanTax.text = "Incl. \(response["msg"]["taxFee"].stringValue)% tax"
                         
                     }else {
                         self.showaAlert(message: response["msg"].stringValue)
                         
                         self.lblSelectedPlanFee.text = AppCurrency + " " + "0"
-                        self.lblSelectedPlanTax.text = "Incl. 0% tax"
+                        //self.lblSelectedPlanTax.text = "Incl. 0% tax"
                     }
                     
                 }catch {
                     self.showaAlert(message: self.getLocalizatioStringValue(key: "JSON Exception"))
                     
                     self.lblSelectedPlanFee.text = AppCurrency + " " + "0"
-                    self.lblSelectedPlanTax.text = "Incl. 0% tax"
+                    //self.lblSelectedPlanTax.text = "Incl. 0% tax"
                 }
                 
                 break

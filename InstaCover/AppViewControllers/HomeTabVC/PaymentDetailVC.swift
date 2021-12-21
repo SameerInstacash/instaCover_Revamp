@@ -259,7 +259,7 @@ class PaymentDetailVC: UIViewController {
                             //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             //self.navigationController?.pushViewController(vc, animated: true)
                             
-                            
+                            /*
                             let fbParameters: [String: Any] = ["CONTENT" : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
                                                              "CONTENT_ID" : AppDelegate.sharedDelegate().selectedPolicyID,
                                                              "CONTENT_TYPE" : UIDevice.current.currentModelName,
@@ -269,18 +269,19 @@ class PaymentDetailVC: UIViewController {
 
                           
                             AppEvents.logEvent(AppEvents.Name.initiatedCheckout, parameters: fbParameters)
+                            */
                             
                             
-                            /*
+                            //*
                             let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: "CONTENT") : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
-                                                                                AppEvents.ParameterName.init(rawValue: "CONTENT_ID") : AppDelegate.sharedDelegate().selectedPolicyID,
-                                                                                AppEvents.ParameterName.init(rawValue: "CONTENT_TYPE") : UIDevice.current.currentModelName,
-                                                                                AppEvents.ParameterName.init(rawValue: "NUM_ITEMS") : "1",
-                                                                                AppEvents.ParameterName.init(rawValue: "INFO_AVAILABLE") : "0",
-                                                                                AppEvents.ParameterName.init(rawValue: "CURRENCY") : "MYR"]
+                                             AppEvents.ParameterName.init(rawValue: "CONTENT_ID") : AppDelegate.sharedDelegate().selectedPolicyID,
+                                             AppEvents.ParameterName.init(rawValue: "CONTENT_TYPE") : UIDevice.current.currentModelName,
+                                             AppEvents.ParameterName.init(rawValue: "NUM_ITEMS") : "1",
+                                             AppEvents.ParameterName.init(rawValue: "INFO_AVAILABLE") : "0",
+                                             AppEvents.ParameterName.init(rawValue: "CURRENCY") : "MYR"]
                             
                             AppEvents.logEvent(AppEvents.Name.initiatedCheckout, parameters: fbParameters)
-                            */
+                            //*/
                             
                             self.initiateIpay88SDK()
                             
@@ -343,15 +344,16 @@ class PaymentDetailVC: UIViewController {
                         AppDelegate.sharedDelegate().referenceNumber = json["msg"]["referenceNumber"].stringValue
                         
                         
-                        
+                        /*
                         let fbParameters: [String: Any] = ["amount" : AppDelegate.sharedDelegate().insuredAmount]
                         AppEvents.logEvent(AppEvents.Name.purchased, parameters: fbParameters)
+                        */
                         
                         
-                        /*
+                        //*
                         let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: "amount") : AppDelegate.sharedDelegate().insuredAmount]
                         AppEvents.logEvent(AppEvents.Name.purchased, parameters: fbParameters)
-                        */
+                        //*/
                         
                         
                         

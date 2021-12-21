@@ -46,11 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         // Set AdvertiserTrackingEnabled to true if a device provides consent
-        Settings.setAdvertiserTrackingEnabled(true)
+        //Settings.setAdvertiserTrackingEnabled(true)
+        //Settings.isAutoLogAppEventsEnabled = true
+        //Settings.isAdvertiserIDCollectionEnabled = true
         
-        Settings.isAutoLogAppEventsEnabled = true
+        Settings.shared.isAdvertiserTrackingEnabled = true
+        Settings.shared.isAutoLogAppEventsEnabled = true
+        Settings.shared.isAdvertiserIDCollectionEnabled = true
         
-        Settings.isAdvertiserIDCollectionEnabled = true
+        sleep(1)
         
         return true
     }

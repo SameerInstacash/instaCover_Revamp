@@ -394,6 +394,7 @@
 		59A1EADE26C6343B0015BE96 /* Magnifying_Glass.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Magnifying_Glass.gif; sourceTree = "<group>"; };
 		59A1EADF26C6343B0015BE96 /* Phone_Rotation_Landscape.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Phone_Rotation_Landscape.gif; sourceTree = "<group>"; };
 		59A1EB3126C646BC0015BE96 /* ServiceRequestSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestSubmitVC.swift; sourceTree = "<group>"; };
+		59C50B2227704E06002AD286 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		59FCD66526C0FB8F00F9B924 /* EditProfileDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDetailsVC.swift; sourceTree = "<group>"; };
 		59FCD6A126C1156C00F9B924 /* CustomerRequestTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestTblCell.swift; sourceTree = "<group>"; };
 		59FCD6A226C1156C00F9B924 /* CustomerRequestTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerRequestTblCell.xib; sourceTree = "<group>"; };
@@ -434,6 +435,7 @@
 		004F15383250FDFC145961AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C50B2227704E06002AD286 /* iAd.framework */,
 				43ABC2504A2A0FE9ACA4DC4E /* Pods_InstaCover.framework */,
 			);
 			name = Frameworks;
@@ -1695,8 +1697,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.3.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 12.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
