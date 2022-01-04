@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -3011,6 +3011,27 @@
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kx6-0s-XJQ">
                                 <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <subviews>
+                                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-jb-wnz" customClass="GradientButton" customModule="InstaCover" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="HlV-Tg-dSH">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="55"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Try again"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="tryAgainButtonPressed:" destination="dKp-9Y-Oze" eventType="touchUpInside" id="ZPJ-4x-7jY"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pas-GF-iUZ" customClass="GradientButton" customModule="InstaCover" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <constraints>
@@ -3030,27 +3051,6 @@
                                         </variation>
                                         <connections>
                                             <action selector="startButtonPressed:" destination="dKp-9Y-Oze" eventType="touchUpInside" id="sAG-wo-7Gj"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-jb-wnz" customClass="GradientButton" customModule="InstaCover" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="HlV-Tg-dSH">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="55"/>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="SKIP"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="skipButtonPressed:" destination="dKp-9Y-Oze" eventType="touchUpInside" id="t1e-QK-mHZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3091,12 +3091,12 @@
                         <outlet property="countLbl" destination="n8m-MD-PzQ" id="fiL-1C-QXl"/>
                         <outlet property="diagnoseProgressView" destination="9g1-Rj-Lbh" id="g3g-9f-qyh"/>
                         <outlet property="headingLbl" destination="5AV-gV-HZG" id="DVj-em-LBg"/>
-                        <outlet property="skipBtn" destination="XUb-jb-wnz" id="3n6-KC-Nvi"/>
                         <outlet property="startBtn" destination="pas-GF-iUZ" id="sMx-Gk-3AQ"/>
                         <outlet property="subHeading1Lbl" destination="gJf-dF-Z2n" id="IJW-AJ-eYQ"/>
                         <outlet property="subHeading2Lbl" destination="d9Q-oB-O0j" id="IAm-lN-MRP"/>
                         <outlet property="testImgView" destination="wg2-Yf-VLu" id="mUk-rt-9l1"/>
                         <outlet property="titleLbl" destination="p58-Xm-5rb" id="gri-j0-MfV"/>
+                        <outlet property="tryAgainBtn" destination="XUb-jb-wnz" id="AGf-dS-TUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quO-lJ-kCq" sceneMemberID="firstResponder"/>
@@ -3655,7 +3655,7 @@
             <size key="intrinsicContentSize" width="55" height="34"/>
         </designable>
         <designable name="XUb-jb-wnz">
-            <size key="intrinsicContentSize" width="38" height="34"/>
+            <size key="intrinsicContentSize" width="74" height="34"/>
         </designable>
         <designable name="Z92-33-a2N">
             <size key="intrinsicContentSize" width="38" height="34"/>

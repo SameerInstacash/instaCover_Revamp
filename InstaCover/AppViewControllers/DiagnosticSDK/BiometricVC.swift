@@ -21,10 +21,12 @@ class BiometricVC: UIViewController {
     @IBOutlet weak var subHeading1Lbl: UILabel!
     @IBOutlet weak var subHeading2Lbl: UILabel!
     @IBOutlet weak var startBtn: UIButton!
-    @IBOutlet weak var skipBtn: UIButton!
+    //@IBOutlet weak var skipBtn: UIButton!
+    @IBOutlet weak var tryAgainBtn: UIButton!
     @IBOutlet weak var testImgView: UIImageView!
     
     var isComingFromDiagnosticTestResult = false
+    var faceIdAttempt = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +63,12 @@ class BiometricVC: UIViewController {
         let fontSizeStart = self.startBtn.titleLabel?.font.pointSize
         self.startBtn.titleLabel?.font = UIFont.init(name: AppFontBold, size: fontSizeStart ?? 18.0)
         
-        self.skipBtn.backgroundColor = AppThemeColor
-        self.skipBtn.layer.cornerRadius = AppBtnCornerRadius
-        self.skipBtn.setTitleColor(AppBtnTitleColor, for: .normal)
-        let fontSizeSkip = self.skipBtn.titleLabel?.font.pointSize
-        self.skipBtn.titleLabel?.font = UIFont.init(name: AppFontBold, size: fontSizeSkip ?? 18.0)
+        self.tryAgainBtn.backgroundColor = AppThemeColor
+        self.tryAgainBtn.layer.cornerRadius = AppBtnCornerRadius
+        self.tryAgainBtn.setTitleColor(AppBtnTitleColor, for: .normal)
+        let fontSizeSkip = self.tryAgainBtn.titleLabel?.font.pointSize
+        self.tryAgainBtn.titleLabel?.font = UIFont.init(name: AppFontBold, size: fontSizeSkip ?? 18.0)
+        
         
         self.countLbl.textColor = AppThemeColor
         self.countLbl.font = UIFont.init(name: AppFontSemiBold, size: self.countLbl.font.pointSize)
@@ -74,7 +77,8 @@ class BiometricVC: UIViewController {
         
         // MultiLingual
         self.startBtn.setTitle(self.getLocalizatioStringValue(key: "Start").uppercased(), for: .normal)
-        self.skipBtn.setTitle(self.getLocalizatioStringValue(key: "Skip").uppercased(), for: .normal)
+        //self.skipBtn.setTitle(self.getLocalizatioStringValue(key: "Skip").uppercased(), for: .normal)
+        self.tryAgainBtn.setTitle(self.getLocalizatioStringValue(key: "Try again").uppercased(), for: .normal)
         //self.titleLbl.text = self.getLocalizatioStringValue(key: "Biometric Authentication")
         self.titleLbl.text = self.getLocalizatioStringValue(key: "")
         self.titleLbl.font = UIFont.init(name: AppFontBold, size: self.titleLbl.font.pointSize)
@@ -195,7 +199,6 @@ class BiometricVC: UIViewController {
                     
                     break
                 }
-                //*/
                 
                 
             }
@@ -217,6 +220,18 @@ class BiometricVC: UIViewController {
         
     }
     
+    @IBAction func tryAgainButtonPressed(_ sender: UIButton) {
+        
+        self.showAlert(title: self.getLocalizatioStringValue(key:"Warning"), message: self.getLocalizatioStringValue(key:"It's your final attempt to pass Face-Id test, if you fail this attempt   we'll mark face ID test as failed."), alertButtonTitles: [self.getLocalizatioStringValue(key:"Cancel"),self.getLocalizatioStringValue(key:"Start")], alertButtonStyles: [.destructive,.default], vc: self) { index in
+            
+            if index == 1 {
+                self.startTest()
+            }
+            
+        }
+        
+    }
+    
     func startTest() {
         
         BioMetricAuthenticator.authenticateWithBioMetrics(reason: "") { (result) in
@@ -231,6 +246,8 @@ class BiometricVC: UIViewController {
                 if AppResultString.contains("CISS12;") {
                     AppResultString = AppResultString.replacingOccurrences(of: "CISS12;", with: "")
                 }
+                
+                self.tryAgainBtn.isHidden = true
                 
                 if self.isComingFromDiagnosticTestResult {
                     
@@ -251,10 +268,42 @@ class BiometricVC: UIViewController {
             case .failure(let error):
                 print("Authentication Failed")
                 
-                
                 // do nothing on canceled
                 if error == .canceledByUser || error == .canceledBySystem {
-            
+                    
+                    self.faceIdAttempt += 1
+                    self.tryAgainBtn.isHidden = false
+                    
+                    if self.faceIdAttempt >= 2 {
+                        
+                        self.faceIdAttempt = 0
+                        self.tryAgainBtn.isHidden = true
+                        
+                        AppResultJSON["Fingerprint Scanner"].int = 0
+                        AppUserDefaults.setValue(false, forKey: "Fingerprint Scanner")
+                        
+                        if !AppResultString.contains("CISS12;") {
+                            AppResultString = AppResultString + "CISS12;"
+                        }
+                        
+                        if self.isComingFromDiagnosticTestResult {
+                            
+                            guard let didFinishRetryDiagnosis = self.biometricRetryDiagnosis else { return }
+                            didFinishRetryDiagnosis()
+                            self.dismiss(animated: false, completion: nil)
+                            
+                        }
+                        else{
+                            
+                            //guard let didFinishTestDiagnosis = self.biometricTestDiagnosis else { return }
+                            guard let didFinishTestDiagnosis = performDiagnostics else { return }
+                            didFinishTestDiagnosis()
+                            self.dismiss(animated: false, completion: nil)
+                            
+                        }
+                        
+                    }
+                    
                     return
                 }
                 
@@ -269,7 +318,6 @@ class BiometricVC: UIViewController {
                     
                     // here we're entering username and password
                     self.showaAlert(message: error.message())
-                    
                 }
                 
                 // No biometry enrolled in this device, ask user to register fingerprint or face
@@ -313,6 +361,7 @@ class BiometricVC: UIViewController {
                 else if error == .biometryLockedout {
                     // show passcode authentication
                     
+                    self.tryAgainBtn.isHidden = true
                     self.showaAlert(message: error.message())
                 }
                 
@@ -320,13 +369,16 @@ class BiometricVC: UIViewController {
                 else {
                     
                     // Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                    
+                    self.tryAgainBtn.isHidden = true
+                    
                     AppResultJSON["Fingerprint Scanner"].int = 0
                     AppUserDefaults.setValue(false, forKey: "Fingerprint Scanner")
                     
                     if !AppResultString.contains("CISS12;") {
                         AppResultString = AppResultString + "CISS12;"
                     }
-                    
+                                        
                     if self.isComingFromDiagnosticTestResult {
                         
                         guard let didFinishRetryDiagnosis = self.biometricRetryDiagnosis else { return }
@@ -370,6 +422,8 @@ class BiometricVC: UIViewController {
             if !AppResultString.contains("CISS12;") {
                 AppResultString = AppResultString + "CISS12;"
             }
+            
+            self.tryAgainBtn.isHidden = true
             
             if self.isComingFromDiagnosticTestResult {
                 

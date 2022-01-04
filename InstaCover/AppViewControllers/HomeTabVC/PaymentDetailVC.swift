@@ -255,10 +255,7 @@ class PaymentDetailVC: UIViewController {
                         AppDelegate.sharedDelegate().insuredQuotationID = json["quotationId"].stringValue
                         
                         if AppDelegate.sharedDelegate().isCurrentDevice {
-                            
-                            //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
-                            //self.navigationController?.pushViewController(vc, animated: true)
-                            
+                                                        
                             /*
                             let fbParameters: [String: Any] = ["CONTENT" : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
                                                              "CONTENT_ID" : AppDelegate.sharedDelegate().selectedPolicyID,
@@ -272,7 +269,6 @@ class PaymentDetailVC: UIViewController {
                             */
                             
                             
-                            //*
                             let fbParameters: [AppEvents.ParameterName: Any] = [AppEvents.ParameterName.init(rawValue: "CONTENT") : AppDelegate.sharedDelegate().insurance + " " + AppDelegate.sharedDelegate().selectedTerm,
                                              AppEvents.ParameterName.init(rawValue: "CONTENT_ID") : AppDelegate.sharedDelegate().selectedPolicyID,
                                              AppEvents.ParameterName.init(rawValue: "CONTENT_TYPE") : UIDevice.current.currentModelName,
@@ -281,11 +277,15 @@ class PaymentDetailVC: UIViewController {
                                              AppEvents.ParameterName.init(rawValue: "CURRENCY") : "MYR"]
                             
                             AppEvents.logEvent(AppEvents.Name.initiatedCheckout, parameters: fbParameters)
-                            //*/
+                            
+                            
+                            //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
+                            //self.navigationController?.pushViewController(vc, animated: true)
                             
                             self.initiateIpay88SDK()
                             
                         }else {
+                            
                             //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             //self.navigationController?.pushViewController(vc, animated: true)
                             
@@ -362,7 +362,6 @@ class PaymentDetailVC: UIViewController {
                      
                     }else {
                         //self.showaAlert(message: json["msg"].stringValue)
-                        
                 
                         if self.apiCount >= 20 {
                             
@@ -373,6 +372,10 @@ class PaymentDetailVC: UIViewController {
                             self.apiCount = 0
                             
                             self.showaAlert(message: "Please contact customer support")
+                        }else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                self.getIpayTransactionStatus()
+                            }
                         }
                         
                     }
@@ -407,7 +410,7 @@ extension PaymentDetailVC : PaymentResultDelegate {
         //ServiceManager.showHUD = false
         
         self.apiCount += 1
-        self.getIpayTransactionStatus()
+        //self.getIpayTransactionStatus()
     }
     
     func paymentSuccess(_ refNo: String!, withTransId transId: String!, withAmount amount: String!, withRemark remark: String!, withAuthCode authCode: String!) {
