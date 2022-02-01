@@ -1,8 +1,8 @@
 //
-//  PaymentDetailVC.swift
+//  PromoCodeVC.swift
 //  InstaCover
 //
-//  Created by Sameer Khan on 12/08/21.
+//  Created by Sameer Khan on 31/01/22.
 //
 
 import UIKit
@@ -13,19 +13,21 @@ import AlamofireImage
 import FacebookCore
 import FBSDKCoreKit
 
-class PaymentDetailVC: UIViewController {
-
-    @IBOutlet weak var txtFieldFullName: UITextField!
-    @IBOutlet weak var txtFieldIcPassport: UITextField!
-    @IBOutlet weak var txtFieldContactNumber: UITextField!
-    @IBOutlet weak var txtFieldEmailAddress: UITextField!
-    @IBOutlet weak var txtFieldDeviceIMEI: UITextField!
-    @IBOutlet weak var txtFieldCoverageTenureType: UITextField!
-    @IBOutlet weak var txtFieldServiceFee: UITextField!
-    @IBOutlet weak var txtFieldBrandAndModel: UITextField!
-    @IBOutlet weak var btnCoverageTenureType: UIButton!
-
-    var arrDropCoverageTenure = [String]()
+class PromoCodeVC: UIViewController {
+    
+    @IBOutlet weak var lblDeviceBrandModel: UILabel!
+    @IBOutlet weak var lblCoverageAndTenure: UILabel!
+    @IBOutlet weak var lblServiceRequestFee: UILabel!
+    @IBOutlet weak var lblCouponAmount: UILabel!
+    @IBOutlet weak var lblTotalAmount: UILabel!
+    @IBOutlet weak var btnPromoCode: UIButton!
+    
+    @IBOutlet weak var btnPromoApplied: UIButton!
+    @IBOutlet weak var btnRemove: UIButton!
+    @IBOutlet weak var promoRemoveView: UIView!
+    @IBOutlet weak var promoApplyView: UIView!
+    
+    var customerDeviceDict = [String:Any]()
     
     var paymentSDK : Ipay?
     var requeryPayment:IpayPayment?
@@ -34,34 +36,21 @@ class PaymentDetailVC: UIViewController {
     
     var apiTimer: Timer?
     var apiCount = 0
+    var strCouponCode : String?
     
     let hud = JGProgressHUD()
     let reachability: Reachability? = Reachability()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let plan = (AppDelegate.sharedDelegate().insurance) + "-" + AppDelegate.sharedDelegate().selectedTerm
-        
-        if let userData = CustomUserDefault.getUserData() {
-            self.txtFieldFullName.text = userData.name
-            self.txtFieldIcPassport.text = ""
-            self.txtFieldContactNumber.text = userData.mobile
-            self.txtFieldEmailAddress.text = userData.email
-            //self.txtFieldDeviceIMEI.text = AppUserDefaults.value(forKey: "IMEI") as? String ?? ""
-            self.txtFieldCoverageTenureType.text = plan
-            self.txtFieldServiceFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
-            self.txtFieldBrandAndModel.text = AppDelegate.sharedDelegate().selectedProductName
-        }
-        
-        if AppDelegate.sharedDelegate().isCurrentDevice {
-            self.txtFieldDeviceIMEI.isUserInteractionEnabled = false
-            self.txtFieldDeviceIMEI.text = AppUserDefaults.value(forKey: "IMEI") as? String ?? ""
-        }else {
-            self.txtFieldDeviceIMEI.isUserInteractionEnabled = true
-            self.txtFieldDeviceIMEI.placeholder = "Enter IMEI"
-        }
-        
+        self.lblDeviceBrandModel.text = AppDelegate.sharedDelegate().selectedProductName
+        self.lblCoverageAndTenure.text = plan
+        self.lblServiceRequestFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+        self.lblCouponAmount.text = AppCurrency + " " + "0"
+        self.lblTotalAmount.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+    
         self.setUIElements()
         
     }
@@ -81,49 +70,6 @@ class PaymentDetailVC: UIViewController {
     //MARK: Custom Methods
     func setUIElements() {
         self.setStatusBarGradientColor()
-    }
-    
-    func validation() -> Bool {
-        
-        if self.txtFieldFullName.text?.isEmpty ?? false {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter your full name"))
-            return false
-            
-        }else if self.txtFieldIcPassport.text?.isEmpty ?? false {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter your IC/Passport number"))
-            return false
-            
-        }else if self.txtFieldContactNumber.text?.isEmpty ?? false {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter your contact no."))
-            return false
-            
-        }else if self.txtFieldEmailAddress.text?.isEmpty ?? false {
-        
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter your email"))
-            return false
-            
-        }
-        else if !(self.isValidEmail(self.txtFieldEmailAddress.text ?? "")) {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter valid email"))
-            return false
-            
-        }else if self.txtFieldDeviceIMEI.text?.isEmpty ?? false {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "please enter IMEI of device"))
-            return false
-            
-        }else if self.txtFieldDeviceIMEI.text?.count != 15  {
-            
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "Please enter vaild IMEI number."))
-            return false
-            
-        }
-        
-        return true
     }
     
     func initiateIpay88SDK() {
@@ -163,53 +109,66 @@ class PaymentDetailVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func coverageTenureBtnClicked(_ sender: UIButton) {
-        
-        /*
-        let existingFileDropDown = DropDown()
-        existingFileDropDown.anchorView = sender
-        existingFileDropDown.cellHeight = 40
-        existingFileDropDown.bottomOffset = CGPoint(x: 0, y: 0)
-        
-        // You can also use localizationKeysDataSource instead. Check the docs.
-        let typeOfFileArray = self.arrDropCoverageTenure
-        existingFileDropDown.dataSource = typeOfFileArray
-        
-        // Action triggered on selection
-     
-        existingFileDropDown.selectionAction = { [unowned self] (index, item) in
-            //sender.setTitle(item, for: .normal)
-            self.txtFieldCoverageTenureType.text = item
-        }
-        existingFileDropDown.show()
-        */
-        
-    }
-    
-    @IBAction func continueBtnClicked(_ sender: UIButton) {
-        
-        self.view.endEditing(true)
-        
-        if reachability?.connection.description != "No Connection" {
-            if self.validation() {
+    @IBAction func completePaymentBtnClicked(_ sender: UIButton) {
+        self.showAlert(title: "Reminder", message: "After the payment is successful. You requires to complete the device diagnosis to entitle to the service", alertButtonTitles: ["Cancel","Ok"], alertButtonStyles: [.destructive, .default], vc: self) { index in
+            
+            if index == 1 {
                 //self.saveCustomerQuote()
                 
-                /*
-                self.showAlert(title: "Reminder", message: "After the payment is successful. You requires to complete the device diagnosis to entitle to the service", alertButtonTitles: ["Cancel","Ok"], alertButtonStyles: [.destructive, .default], vc: self) { index in
-                    
-                    if index == 1 {
-                        self.saveCustomerQuote()
-                    }
-                }
-                */
-                
-                self.saveCustomerQuote()
+                self.initiateIpay88SDK()
                 
             }
-        }else {
-            self.showaAlert(message: self.getLocalizatioStringValue(key: "Please Check Internet connection."))
         }
+    }
+    
+    @IBAction func applyPromoCodeBtnClicked(_ sender: UIButton) {
+        
+        //if sender.titleLabel?.text == self.getLocalizatioStringValue(key: "Apply promo code") {
+            
+            let alert = UIAlertController(title: self.getLocalizatioStringValue(key: "Apply Promo"), message: "", preferredStyle: UIAlertController.Style.alert)
+            
+            let doneAction = UIAlertAction(title: self.getLocalizatioStringValue(key: "Apply"), style: .default) { (alertAction) in
+                let textField = alert.textFields![0] as UITextField
                 
+                guard !(textField.text?.isEmpty ?? false) else {
+                    
+                    self.showaAlert(message: self.getLocalizatioStringValue(key: "Please Enter Valid Promo Code"))
+                    return
+                }
+                
+                print(textField.text ?? "nothing")
+                print("Promo code applied!")
+                
+                self.strCouponCode = textField.text ?? ""
+                self.applyPromoCodeApiCall()
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: self.getLocalizatioStringValue(key: "Cancel"), style: .destructive) { (alertAction) in
+                
+            }
+            
+            alert.addTextField { (textField) in
+                textField.placeholder = self.getLocalizatioStringValue(key: "Enter Promo code")
+            }
+            
+            alert.addAction(doneAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true) {
+                
+            }
+            
+        /*
+        }else {
+            
+            self.removePromoCodeApiCall()
+        }
+        */
+    
+    }
+    
+    @IBAction func removePromoCodeBtnClicked(_ sender: UIButton) {
+        self.removePromoCodeApiCall()
     }
     
     //MARK:- Web Service Methods
@@ -230,16 +189,16 @@ class PaymentDetailVC: UIViewController {
             "customerId" : userData?.internalIdentifier ?? "",
             "productId" : AppDelegate.sharedDelegate().selectedProductID,
             "policyId" : AppDelegate.sharedDelegate().selectedPolicyID,
-            "name" : self.txtFieldFullName.text ?? "",
-            "contact" : self.txtFieldContactNumber.text ?? "",
-            "nricNo" : self.txtFieldIcPassport.text ?? "",
-            "email" : self.txtFieldEmailAddress.text ?? "",
+            "name" : self.customerDeviceDict["name"] ?? "",
+            "contact" : self.customerDeviceDict["contact"] ?? "",
+            "nricNo" : self.customerDeviceDict["nricNo"] ?? "",
+            "email" : self.customerDeviceDict["email"] ?? "",
             "uniqueId" : UIDevice.current.identifierForVendor!.uuidString,
             "uniqueType" : "ios",
             "imeiNumber" : AppUserDefaults.value(forKey: "IMEI") ?? "",
         ]
         
-        //print(params)
+        print(params)
         self.showHudLoader("")
         
         let webService = AF.request(AppURL.kSaveCustomerQuote, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
@@ -286,39 +245,14 @@ class PaymentDetailVC: UIViewController {
                             //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             //self.navigationController?.pushViewController(vc, animated: true)
                             
-                            
-                            
-                            //self.initiateIpay88SDK()
-                            
-                            let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PromoCodeVC") as! PromoCodeVC
-                            
-                            vc.customerDeviceDict = ["name" : self.txtFieldFullName.text ?? "",
-                                                     "contact" : self.txtFieldContactNumber.text ?? "",
-                                                     "nricNo" : self.txtFieldIcPassport.text ?? "",
-                                                     "email" : self.txtFieldEmailAddress.text ?? ""
-                                                    ]
-                            
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            self.initiateIpay88SDK()
                             
                         }else {
                             
                             //let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PaymentSuccessVC") as! PaymentSuccessVC
                             //self.navigationController?.pushViewController(vc, animated: true)
                             
-                            
-                            
-                            //self.initiateIpay88SDK()
-                            
-                            let vc = DesignManager.loadViewControllerFromHomeStoryBoard(identifier: "PromoCodeVC") as! PromoCodeVC
-                            
-                            vc.customerDeviceDict = ["name" : self.txtFieldFullName.text ?? "",
-                                                     "contact" : self.txtFieldContactNumber.text ?? "",
-                                                     "nricNo" : self.txtFieldIcPassport.text ?? "",
-                                                     "email" : self.txtFieldEmailAddress.text ?? ""
-                                                    ]
-                            
-                            self.navigationController?.pushViewController(vc, animated: true)
-                            
+                            self.initiateIpay88SDK()
                         }
                                              
                     }else {
@@ -422,6 +356,131 @@ class PaymentDetailVC: UIViewController {
       
         }
     }
+    
+    func applyPromoCodeApiCall() {
+        
+        var params = [String : Any]()
+        params = [
+            "userName" : "instaCover",
+            "apiKey" : "instaCover",
+            "quoteId" : AppDelegate.sharedDelegate().insuredQuotationID,
+            "code" : self.strCouponCode ?? ""
+        ]
+        
+        print(params)
+        self.showHudLoader("")
+        
+        let webService = AF.request(AppURL.kApplyPromo, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        webService.responseJSON { (responseData) in
+            
+            self.hud.dismiss()
+            print(responseData.value as? [String:Any] ?? [:])
+            
+            switch responseData.result {
+            case .success(_):
+                                
+                do {
+                    let json = try JSON(data: responseData.data ?? Data())
+                    //print(json)
+                    
+                    if json["status"] == "Success" {
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.btnPromoApplied.setTitle("Promo applied " + (self.strCouponCode ?? ""), for: .normal)
+                            
+                            self.promoRemoveView.isHidden = !self.promoRemoveView.isHidden
+                            self.promoApplyView.isHidden = !self.promoApplyView.isHidden
+                            
+                                                        
+                            AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            
+                            self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
+                            self.lblCouponAmount.text = AppCurrency + " " + json["promoAmount"].stringValue
+                            self.lblTotalAmount.text =  json["newAmount"].stringValue
+                        
+                        }
+                      
+                    }else {
+                        self.showaAlert(message: json["msg"].stringValue)
+                    }
+                    
+                }catch {
+                    self.showaAlert(message: self.getLocalizatioStringValue(key: "JSON Exception"))
+                }
+                
+                break
+            case .failure(_):
+                print(responseData.error ?? NSError())
+                self.showaAlert(message: self.getLocalizatioStringValue(key: "Something went wrong!!"))
+                break
+            }
+      
+        }
+        
+    }
+    
+    func removePromoCodeApiCall() {
+        
+        var params = [String : Any]()
+        params = [
+            "userName" : "instaCover",
+            "apiKey" : "instaCover",
+            "quoteId" : AppDelegate.sharedDelegate().insuredQuotationID,
+            "code" : self.strCouponCode ?? ""
+        ]
+        
+        print(params)
+        self.showHudLoader("")
+        
+        let webService = AF.request(AppURL.kRemovePromo, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        webService.responseJSON { (responseData) in
+            
+            self.hud.dismiss()
+            print(responseData.value as? [String:Any] ?? [:])
+            
+            switch responseData.result {
+            case .success(_):
+                                
+                do {
+                    let json = try JSON(data: responseData.data ?? Data())
+                    //print(json)
+                    
+                    if json["status"] == "Success" {
+                    
+                        DispatchQueue.main.async {
+                            
+                            self.btnPromoApplied.setTitle(" ", for: .normal)
+                        
+                            self.promoRemoveView.isHidden = !self.promoRemoveView.isHidden
+                            self.promoApplyView.isHidden = !self.promoApplyView.isHidden
+                            
+                            AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            
+                            self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
+                            self.lblCouponAmount.text = AppCurrency + " " + json["promoAmount"].stringValue
+                            self.lblTotalAmount.text =  json["newAmount"].stringValue
+                            
+                        }
+                        
+                    }else {
+                        self.showaAlert(message: json["msg"].stringValue)
+                    }
+                    
+                }catch {
+                    self.showaAlert(message: self.getLocalizatioStringValue(key: "JSON Exception"))
+                }
+                
+                break
+            case .failure(_):
+                print(responseData.error ?? NSError())
+                self.showaAlert(message: self.getLocalizatioStringValue(key: "Something went wrong!!"))
+                break
+            }
+      
+        }
+        
+    }
 
     // MARK: - Navigation
 
@@ -430,10 +489,11 @@ class PaymentDetailVC: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    
 
 }
 
-extension PaymentDetailVC : PaymentResultDelegate {
+extension PromoCodeVC : PaymentResultDelegate {
     
     @objc func update() {
         //ServiceManager.showHUD = false

@@ -81,6 +81,8 @@ struct AppURL {
     static let kSendVideoLink = AppBaseUrl + "sendVideoLink"
     static let kUploadVideoCheck = AppBaseUrl + "uploadVideoCheck"
     static let kSetiPayTransaction = AppBaseUrl + "setiPayTransaction"
+    static let kApplyPromo = AppBaseUrl + "Order/applyPromo"
+    static let kRemovePromo = AppBaseUrl + "Order/removePromo"
     
     static let kSaveMobile = AppBaseUrl + "saveMobile"
     static let kGetCustomerType = AppBaseUrl + "getCustomerType"

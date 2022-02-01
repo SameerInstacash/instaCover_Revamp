@@ -113,6 +113,22 @@ import UIKit
     }
 }
 
+@IBDesignable class CornerButton: UIButton {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+            setNeedsLayout()
+        }
+    }
+}
+
 class DesignManager: NSObject {
     
     class func loadViewControllerFromMainStoryBoard(identifier: String) -> Any {
