@@ -17,6 +17,7 @@ class PromoCodeVC: UIViewController {
     
     @IBOutlet weak var lblDeviceBrandModel: UILabel!
     @IBOutlet weak var lblCoverageAndTenure: UILabel!
+    @IBOutlet weak var lblSubscriptionFee: UILabel!
     @IBOutlet weak var lblServiceRequestFee: UILabel!
     @IBOutlet weak var lblCouponAmount: UILabel!
     @IBOutlet weak var lblTotalAmount: UILabel!
@@ -34,6 +35,8 @@ class PromoCodeVC: UIViewController {
     var paymentView : UIView?
     var viewModel : DetailViewModel = DetailViewModel()
     
+    var finalAmount = 0
+    
     var apiTimer: Timer?
     var apiCount = 0
     var strCouponCode : String?
@@ -47,9 +50,15 @@ class PromoCodeVC: UIViewController {
         let plan = (AppDelegate.sharedDelegate().insurance) + "-" + AppDelegate.sharedDelegate().selectedTerm
         self.lblDeviceBrandModel.text = AppDelegate.sharedDelegate().selectedProductName
         self.lblCoverageAndTenure.text = plan
-        self.lblServiceRequestFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+        self.lblSubscriptionFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+        self.lblServiceRequestFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredServiceFee
         self.lblCouponAmount.text = AppCurrency + " " + "0"
-        self.lblTotalAmount.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+        //self.lblTotalAmount.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+        
+        let amount = (Int(AppDelegate.sharedDelegate().insuredAmount) ?? 0) + (Int(AppDelegate.sharedDelegate().insuredServiceFee) ?? 0)
+        print(amount)
+        self.finalAmount = amount
+        self.lblTotalAmount.text = AppCurrency + " " + "\(amount)"
     
         self.setUIElements()
         
@@ -82,7 +91,8 @@ class PromoCodeVC: UIViewController {
         requeryPayment?.merchantKey = "lObOlu9PD3" //viewModel.detail.merchantKey
         requeryPayment?.merchantCode = "M28460_S0002" //viewModel.detail.merchantCode
         requeryPayment?.refNo = AppDelegate.sharedDelegate().insuredQuotationID //viewModel.detail.refNo
-        requeryPayment?.amount = AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
+        //requeryPayment?.amount = AppDelegate.sharedDelegate().insuredAmount //viewModel.detail.amount
+        requeryPayment?.amount = String(self.finalAmount)
         requeryPayment?.currency = "MYR" //viewModel.detail.currency
         requeryPayment?.prodDesc = AppDelegate.sharedDelegate().insurance + " with " + AppDelegate.sharedDelegate().selectedTerm //viewModel.detail.productDescription
         requeryPayment?.userName = userData?.name //viewModel.detail.customerName
@@ -392,12 +402,13 @@ class PromoCodeVC: UIViewController {
                             self.promoRemoveView.isHidden = !self.promoRemoveView.isHidden
                             self.promoApplyView.isHidden = !self.promoApplyView.isHidden
                             
+                            self.finalAmount = Int(json["newAmount"].stringValue) ?? 0
                                                         
-                            AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            //AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            //self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
                             
-                            self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
                             self.lblCouponAmount.text = AppCurrency + " " + json["promoAmount"].stringValue
-                            self.lblTotalAmount.text =  json["newAmount"].stringValue
+                            self.lblTotalAmount.text = AppCurrency + " " + json["newAmount"].stringValue
                         
                         }
                       
@@ -455,11 +466,13 @@ class PromoCodeVC: UIViewController {
                             self.promoRemoveView.isHidden = !self.promoRemoveView.isHidden
                             self.promoApplyView.isHidden = !self.promoApplyView.isHidden
                             
-                            AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            self.finalAmount = Int(json["newAmount"].stringValue) ?? 0
                             
-                            self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
+                            //AppDelegate.sharedDelegate().insuredAmount = json["newAmount"].stringValue
+                            //self.lblServiceRequestFee.text = AppCurrency + " " + json["newAmount"].stringValue
+                            
                             self.lblCouponAmount.text = AppCurrency + " " + json["promoAmount"].stringValue
-                            self.lblTotalAmount.text =  json["newAmount"].stringValue
+                            self.lblTotalAmount.text = AppCurrency + " " + json["newAmount"].stringValue
                             
                         }
                         
@@ -505,7 +518,7 @@ extension PromoCodeVC : PaymentResultDelegate {
     func paymentSuccess(_ refNo: String!, withTransId transId: String!, withAmount amount: String!, withRemark remark: String!, withAuthCode authCode: String!) {
         
         //ServiceManager.showHUD = true
-        apiTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(PaymentDetailVC.update), userInfo: nil, repeats: true)
+        apiTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(PromoCodeVC.update), userInfo: nil, repeats: true)
         
         //let message = "refNo=\(String(describing: refNo!))\n transId=\(String(describing: transId!))\n amount=\(String(describing: amount!))\n remark=\(String(describing: remark!)) \nauthCode:\(String(describing: authCode!))"
         //showMessage(title: "Payment Success", message: message)

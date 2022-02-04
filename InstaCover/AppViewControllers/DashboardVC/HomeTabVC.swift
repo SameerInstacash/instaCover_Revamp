@@ -798,14 +798,14 @@ class HomeTabVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             "imeiNumber" : AppUserDefaults.value(forKey: "IMEI") as? String ?? ""
         ]
         
-        //print("params = \(params)")
+        print("params = \(params)")
         //self.showHudLoader()
         
         let webService = AF.request(AppURL.kGetQuote, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         webService.responseJSON { (responseData) in
             
             self.hud.dismiss()
-            //print(responseData.value as? [String:Any] ?? [:])
+            print(responseData.value as? [String:Any] ?? [:])
             
             switch responseData.result {
             case .success(_):

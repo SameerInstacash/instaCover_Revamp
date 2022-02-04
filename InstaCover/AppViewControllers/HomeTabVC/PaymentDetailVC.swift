@@ -50,7 +50,7 @@ class PaymentDetailVC: UIViewController {
             self.txtFieldEmailAddress.text = userData.email
             //self.txtFieldDeviceIMEI.text = AppUserDefaults.value(forKey: "IMEI") as? String ?? ""
             self.txtFieldCoverageTenureType.text = plan
-            self.txtFieldServiceFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
+            self.txtFieldServiceFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredServiceFee
             self.txtFieldBrandAndModel.text = AppDelegate.sharedDelegate().selectedProductName
         }
         
@@ -239,14 +239,14 @@ class PaymentDetailVC: UIViewController {
             "imeiNumber" : AppUserDefaults.value(forKey: "IMEI") ?? "",
         ]
         
-        //print(params)
+        print(params)
         self.showHudLoader("")
         
         let webService = AF.request(AppURL.kSaveCustomerQuote, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         webService.responseJSON { (responseData) in
             
             self.hud.dismiss()
-            //print(responseData.value as? [String:Any] ?? [:])
+            print(responseData.value as? [String:Any] ?? [:])
             
             switch responseData.result {
             case .success(_):
