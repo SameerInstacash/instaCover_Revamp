@@ -51,11 +51,12 @@ class PromoCodeVC: UIViewController {
         self.lblDeviceBrandModel.text = AppDelegate.sharedDelegate().selectedProductName
         self.lblCoverageAndTenure.text = plan
         self.lblSubscriptionFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
-        self.lblServiceRequestFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredServiceFee
+        //self.lblServiceRequestFee.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredServiceFee
         self.lblCouponAmount.text = AppCurrency + " " + "0"
         //self.lblTotalAmount.text = AppCurrency + " " + AppDelegate.sharedDelegate().insuredAmount
         
-        let amount = (Int(AppDelegate.sharedDelegate().insuredAmount) ?? 0) + (Int(AppDelegate.sharedDelegate().insuredServiceFee) ?? 0)
+        //let amount = (Int(AppDelegate.sharedDelegate().insuredAmount) ?? 0) + (Int(AppDelegate.sharedDelegate().insuredServiceFee) ?? 0)
+        let amount = (Int(AppDelegate.sharedDelegate().insuredAmount) ?? 0)
         print(amount)
         self.finalAmount = amount
         self.lblTotalAmount.text = AppCurrency + " " + "\(amount)"
