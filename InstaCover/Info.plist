@@ -64,7 +64,7 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>Calendar Usage permission Required for Resume test time</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera permission required to check both cameras</string>
+	<string>Our app requires access to your camera in order to take photo of the user, so that it can be verified when the product is claimed after order placement</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Contacts Permission required to fetch user contacts</string>
 	<key>NSFaceIDUsageDescription</key>

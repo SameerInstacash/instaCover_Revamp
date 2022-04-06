@@ -10,6 +10,7 @@ import SwiftyJSON
 import Firebase
 import FacebookCore
 import FBSDKCoreKit
+import NewRelic
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var descriptionHtml : String = ""       
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        NewRelic.start(withApplicationToken: "eu01xxd0528b32091daa0fede1f860837d048655ef-NRMA")
         
         FirebaseApp.configure()
         

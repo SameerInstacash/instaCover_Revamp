@@ -125,6 +125,7 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - NewRelicAgent (7.3.4)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.12)
@@ -145,6 +146,7 @@ DEPENDENCIES:
   - iOSDropDown
   - JGProgressHUD
   - Luminous
+  - NewRelicAgent
   - PopupDialog
   - SwiftGifOrigin
   - SwiftQRScanner (from `https://github.com/vinodiOS/SwiftQRScanner`)
@@ -176,6 +178,7 @@ SPEC REPOS:
     - leveldb-library
     - Luminous
     - nanopb
+    - NewRelicAgent
     - PopupDialog
     - PromisesObjC
     - SwiftGifOrigin
@@ -215,12 +218,13 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Luminous: 74fb4a58c5c543efe7d4764f027539b156e5de4b
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  NewRelicAgent: d0d9b04bdb4694ad8d97619db7a4a542e2333e8b
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftQRScanner: e09dc7b549d0d7301cdca505d483665af8cda58e
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 507556aab66dc8bc20950e1ecb770d92f6cea84e
+PODFILE CHECKSUM: e44237d022edb2b9934e09a847af36b6c305c4ab
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

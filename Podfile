@@ -26,4 +26,6 @@ target 'InstaCover' do
   pod 'iOSDropDown'
   pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
 
+  pod 'NewRelicAgent'
+  
 end

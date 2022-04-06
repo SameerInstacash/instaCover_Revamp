@@ -121,6 +121,7 @@ class PromoCodeVC: UIViewController {
     }
     
     @IBAction func completePaymentBtnClicked(_ sender: UIButton) {
+        
         self.showAlert(title: "Reminder", message: "After the payment is successful. You requires to complete the device diagnosis to entitle to the service", alertButtonTitles: ["Cancel","Ok"], alertButtonStyles: [.destructive, .default], vc: self) { index in
             
             if index == 1 {

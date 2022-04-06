@@ -976,6 +976,7 @@
 				596C0A3B26BBA32000D257B1 /* Resources */,
 				003BE68C1FA9E8C712AAC27B /* [CP] Embed Pods Frameworks */,
 				597A918A26DE2FCC00BCDBB3 /* ShellScript */,
+				59B083CA27FD9BB500B09009 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1214,6 +1215,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		59B083CA27FD9BB500B09009 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n\n/bin/sh \"${SCRIPT}\" \"eu01xxd0528b32091daa0fede1f860837d048655ef-NRMA\"\n";
 		};
 		6064B4C3B9A9A02D7454317D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1517,7 +1535,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.11;
+				CURRENT_PROJECT_VERSION = 4.15;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
@@ -1549,7 +1567,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = InstaCover/InstaCover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.11;
+				CURRENT_PROJECT_VERSION = 4.15;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = InstaCover/Info.plist;
